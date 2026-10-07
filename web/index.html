@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Jailbreak Taxonomy · Research with your AI partner</title>
+  <style>/* APP_STYLES */</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="sidebar">
+    <a class="brand" href="#start" aria-label="Jailbreak Taxonomy home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>Jailbreak<br><strong>Taxonomy</strong></span>
+    </a>
+    <p class="side-caption">Research with your AI partner</p>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#start" data-view="start"><span aria-hidden="true">⌂</span> Start here</a>
+      <a href="#learn" data-view="learn"><span aria-hidden="true">▦</span> Learn the concepts <small id="nav-concept-count"></small></a>
+      <a href="#evidence" data-view="evidence"><span aria-hidden="true">◫</span> Examine evidence</a>
+      <a href="#assistant" data-view="assistant"><span aria-hidden="true">↗</span> Work with an assistant</a>
+      <a href="#sources" data-view="sources"><span aria-hidden="true">≡</span> Read the sources</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="local-status"><span aria-hidden="true"></span> Works offline</div>
+      <p>Your judgment. Your workspace.<br>Open source, by design.</p>
+      <span class="version" id="catalog-date"></span>
+    </div>
+  </aside>
+  <div class="shell">
+    <header class="topbar">
+      <span class="breadcrumb">FIELD REFERENCE <span aria-hidden="true">/</span> <strong id="current-view-label">Start here</strong></span>
+      <span class="workspace-badge" id="workspace-badge"></span>
+    </header>
+    <main id="main" tabindex="-1">
+      <noscript><div class="notice">Enable JavaScript to explore this self-contained offline reference.</div></noscript>
+      <div id="load-error" class="notice" role="alert" hidden>The reference could not load. Rebuild this file from the repository, then open it again.</div>
+
+      <section id="view-start" class="view" aria-labelledby="start-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="small-line"></span> A shared language for careful research</p>
+            <h1 id="start-title">See the evidence.<br><span>Keep the judgment.</span></h1>
+            <p class="hero-summary">Understand model behavior, question your interpretations, and let your AI partner handle the bookkeeping.</p>
+            <a class="button primary" href="#learn">Explore the taxonomy <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="evidence-illustration" aria-label="Observe the record, consider explanations, keep uncertainty visible" role="img">
+            <div class="diagram-orbit"></div>
+            <div class="diagram-note note-one"><span class="note-dot green"></span><strong>What is recorded?</strong><small>Start with observable evidence.</small></div>
+            <div class="diagram-note note-two"><span class="note-dot blue"></span><strong>What else could explain it?</strong><small>Keep alternatives in view.</small></div>
+            <div class="diagram-note note-three"><span class="note-dot amber"></span><strong>What is still unknown?</strong><small>Carry the limits forward.</small></div>
+          </div>
+        </div>
+        <div class="intro-line"><p>An open reference for people and their assistants.</p><span id="catalog-stats"></span></div>
+        <div class="start-grid">
+          <a class="start-card" href="#learn"><span class="card-number">01 / UNDERSTAND</span><h2>Learn the concepts <span aria-hidden="true">↗</span></h2><p>Explore the vocabulary, its boundaries, and the evidence each interpretation needs.</p><span class="card-action">Choose a reading path <span aria-hidden="true">→</span></span></a>
+          <a class="start-card" href="#evidence"><span class="card-number">02 / QUESTION</span><h2>Examine evidence <span aria-hidden="true">↗</span></h2><p>Follow research cards from a claim to its records, alternatives, and next check.</p><span class="card-action">Open the workspace <span aria-hidden="true">→</span></span></a>
+          <a class="start-card" href="#assistant"><span class="card-number">03 / COLLABORATE</span><h2>Work with an assistant <span aria-hidden="true">↗</span></h2><p>Take a focused research brief to your assistant. Review its work here as it develops.</p><span class="card-action">Prepare a handoff <span aria-hidden="true">→</span></span></a>
+        </div>
+        <div class="principle-strip"><strong>A concept is a lens, not a verdict.</strong><p>Labels help organize questions. A platform judgment, an emitted tool call, and a verified outcome establish different things.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">START WITH A QUESTION</p><h2>Paths through the reference</h2></div><a href="#learn" class="text-link">View all concepts <span aria-hidden="true">→</span></a></div>
+        <div id="start-paths" class="path-grid"></div>
+      </section>
+
+      <section id="view-learn" class="view" aria-labelledby="learn-title" hidden>
+        <div class="page-heading"><p class="eyebrow">THE REFERENCE</p><h1 id="learn-title">Learn the concepts</h1><p>Read a concept, check its boundaries, and keep competing explanations close.</p></div>
+        <div id="learn-paths" class="path-grid compact-paths"></div>
+        <div class="search-toolbar">
+          <div class="search-field"><span aria-hidden="true">⌕</span><label class="sr-only" for="concept-search">Search concepts</label><input id="concept-search" type="search" autocomplete="off" placeholder="Search concepts, evidence, or questions…" aria-controls="concept-grid"><kbd aria-hidden="true">/</kbd></div>
+          <label class="sr-only" for="category-filter">Filter by category</label><select id="category-filter"><option value="">All categories</option></select>
+        </div>
+        <div class="result-line"><p id="result-count" role="status" aria-live="polite"></p><button class="text-button" id="clear-filters" type="button" hidden>Clear filters</button></div>
+        <div id="active-path" class="active-path" hidden></div>
+        <div id="concept-grid" class="concept-grid"></div>
+        <div id="no-results" class="empty-state" hidden><span aria-hidden="true">⌕</span><h2>No matching concepts</h2><p>Try a broader term or clear the current filters.</p><button class="button secondary" id="reset-search" type="button">Show all concepts</button></div>
+      </section>
+
+      <section id="view-evidence" class="view" aria-labelledby="evidence-title" hidden>
+        <div class="page-heading"><p class="eyebrow">THE WORKSPACE</p><h1 id="evidence-title">Examine evidence</h1><p id="workspace-title"></p></div>
+        <div id="selection-notice" class="notice"></div>
+        <div id="workspace-stats" class="stats-grid"></div>
+        <p class="caption">Counts describe the imported records. Acceptance is a platform judgment; it does not independently verify an outcome.</p>
+        <div class="section-heading"><div><p class="eyebrow">CLAIMS YOU CAN INSPECT</p><h2>Research cards</h2></div><span id="card-count" class="count-label"></span></div>
+        <div id="research-cards" class="research-grid"></div>
+        <div class="section-heading"><div><p class="eyebrow">KNOW THE LIMITS</p><h2>Questions for every evaluation</h2></div></div>
+        <div id="evaluation-dimensions" class="dimension-grid"></div>
+        <details class="records-section"><summary>Inspect the imported record index <span id="record-count"></span></summary><p class="caption">Metadata only. Open a record to inspect its exported measurements.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Imported records"><table><thead><tr><th scope="col">Record</th><th scope="col">Scenario</th><th scope="col">Platform judgment</th><th scope="col">Evidence level</th></tr></thead><tbody id="record-rows"></tbody></table></div></details>
+        <details class="limitations-section"><summary>Workspace limitations</summary><ul id="workspace-limitations"></ul></details>
+      </section>
+
+      <section id="view-assistant" class="view" aria-labelledby="assistant-title" hidden>
+        <div class="page-heading"><p class="eyebrow">HUMAN + ASSISTANT</p><h1 id="assistant-title">Research with your AI partner</h1><p>You bring the questions and judgment. Your assistant organizes records, checks references, and makes the reasoning reviewable.</p></div>
+        <div class="collaboration-steps">
+          <div><span>01</span><h2>Choose a focus</h2><p>Add concepts to your handoff as you read. The brief also carries this workspace’s limits.</p></div>
+          <div><span>02</span><h2>Bring your assistant</h2><p>Copy the brief into your own assistant and point it to your separate research workspace.</p></div>
+          <div><span>03</span><h2>Review the result</h2><p>Ask it to maintain research cards and rebuild your view. Inspect claims, alternatives, and sources here.</p></div>
+        </div>
+        <div class="handoff-layout">
+          <div class="handoff-main"><div class="section-heading"><div><p class="eyebrow">READY TO TAKE WITH YOU</p><h2>Your research handoff</h2></div><span id="selection-count" class="count-label"></span></div><div id="selected-concepts" class="selected-concepts"></div><p class="caption">Selections last until this page is reloaded. Copy or download the brief to keep it.</p><div class="button-row"><button type="button" class="button primary" id="copy-handoff">Copy handoff <span aria-hidden="true">↗</span></button><button type="button" class="button secondary" id="download-handoff">Download .txt</button></div><p class="caption" id="copy-status" role="status" aria-live="polite">This page does not connect to a model. Share the brief with the assistant you choose.</p><pre id="handoff-preview" class="handoff-preview" tabindex="0" aria-label="Research handoff preview"></pre></div>
+          <aside class="partner-note"><span class="note-symbol" aria-hidden="true">✳</span><h2>Keep the partnership explicit.</h2><p>Who suggested the idea? Who edited it? Who interpreted the result?</p><p>Record what is known. Attribute recollections. Let missing history remain unknown.</p><div class="thin-rule"></div><strong>Your assistant can help with</strong><ul><li>Evidence-linked research cards</li><li>Alternative explanations</li><li>Primary-source checks</li><li>Clear limits on each claim</li></ul></aside>
+        </div>
+      </section>
+
+      <section id="view-sources" class="view" aria-labelledby="sources-title" hidden>
+        <div class="page-heading"><p class="eyebrow">FOLLOW THE PROVENANCE</p><h1 id="sources-title">Read the sources</h1><p>See what was reviewed, how deeply it was read, and which questions it can support.</p></div>
+        <div class="notice subtle">A citation provides context for a concept. It does not validate every label or establish a universal effect. Source links open online in a new tab.</div>
+        <div id="source-list" class="source-list"></div>
+      </section>
+      <footer class="page-footer"><span>Jailbreak Taxonomy</span><p>Evidence before inference. Uncertainty stays visible.</p><a href="#start">Back to start <span aria-hidden="true">↑</span></a></footer>
+    </main>
+  </div>
+  <dialog id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-toolbar"><span id="detail-kind" class="eyebrow"></span><button id="close-dialog" type="button" class="icon-button" aria-label="Close detail">×</button></div><div id="detail-content"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script id="catalog-data" type="application/json">CATALOG_JSON</script>
+  <script id="workspace-data" type="application/json">WORKSPACE_JSON</script>
+  <script>/* APP_SCRIPT */</script>
+</body>
+</html>

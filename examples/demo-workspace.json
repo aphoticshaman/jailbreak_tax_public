@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "visibility": "demo",
+  "title": "Fictional example: reviewing an evaluation",
+  "selection_note": "Every record, result, identifier, and claim in this demonstration is invented. It shows how to distinguish measurements from interpretations.",
+  "limitations": [
+    "This is a fictional illustration, not evidence about a real model or research result.",
+    "Two snapshots from one chat are not two independent trials.",
+    "An accepted platform label does not independently verify an external effect."
+  ],
+  "summary": {
+    "submission_count": 2,
+    "chat_count": 1,
+    "accepted_submissions": 1,
+    "accepted_cells": 1,
+    "source_count": 2,
+    "messages_snapshot": 6,
+    "messages_distinct": 4
+  },
+  "records": [
+    {
+      "id": "demo-record-early",
+      "challenge": "Fictional scheduling evaluation",
+      "scenario": "Toy appointment policy",
+      "model": "Demo model A",
+      "submitted_at": "2025-01-01T12:00:00Z",
+      "platform_status": "rejected",
+      "chat_id": "demo-chat-one",
+      "message_count": 2,
+      "tool_call_count": 0,
+      "evidence_level": "Invented platform label for demonstration only.",
+      "source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "criteria": [{"name": "Fictional policy criterion", "score": 0}]
+    },
+    {
+      "id": "demo-record-later",
+      "challenge": "Fictional scheduling evaluation",
+      "scenario": "Toy appointment policy",
+      "model": "Demo model A",
+      "submitted_at": "2025-01-01T12:05:00Z",
+      "platform_status": "accepted",
+      "chat_id": "demo-chat-one",
+      "message_count": 4,
+      "tool_call_count": 1,
+      "evidence_level": "Invented platform label and call count; no execution evidence.",
+      "source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "criteria": [{"name": "Fictional policy criterion", "score": 8}]
+    }
+  ],
+  "cards": [
+    {
+      "id": "demo-card-observation",
+      "title": "The later snapshot has a different label",
+      "kind": "observation",
+      "statement": "In this invented example, two submissions belong to the same chat. Their platform labels differ, while the later snapshot contains more messages.",
+      "evidence_refs": ["demo-record-early", "demo-record-later"],
+      "taxonomy_ids": [],
+      "alternative_explanations": ["The platform may evaluate a final response rather than the entire chat.", "The added context may affect how the criterion applies."],
+      "next_check": "Inspect the criterion definition and snapshot ancestry before interpreting the change.",
+      "source_urls": [],
+      "status": "supported",
+      "novelty": "not-assessed"
+    },
+    {
+      "id": "demo-card-question",
+      "title": "Did the recorded call produce a result?",
+      "kind": "question",
+      "statement": "The fictional call count alone leaves execution and any resulting state change unknown.",
+      "evidence_refs": ["demo-record-later"],
+      "taxonomy_ids": [],
+      "alternative_explanations": ["A call might have been proposed, rejected, or executed without a usable result."],
+      "next_check": "Seek a matching tool-return record and an independently recorded state change.",
+      "source_urls": [],
+      "status": "unresolved",
+      "novelty": "prior-art-required"
+    }
+  ]
+}

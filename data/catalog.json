@@ -1,0 +1,2332 @@
+{
+  "schema_version": 1,
+  "title": "AI Safety Research Catalog",
+  "updated": "2026-10-07",
+  "summary": "A reading and evidence reference for human-AI research. Concepts describe boundaries, observable behavior, and alternative explanations. They are not attack recipes, hidden-mechanism diagnoses, or efficacy rankings.",
+  "categories": [
+    {
+      "id": "persona_displacement",
+      "name": "Roles and responsibilities",
+      "summary": "How an assistant's described identity relates to its actual remit and authority."
+    },
+    {
+      "id": "hypothetical_fictional_framing",
+      "name": "Fiction, quotation, and context",
+      "summary": "How analytical, historical, and fictional settings affect interpretation without changing who is speaking."
+    },
+    {
+      "id": "authority_social_engineering",
+      "name": "Authority and permission",
+      "summary": "How systems distinguish claimed status, urgency, and role labels from authorization."
+    },
+    {
+      "id": "encoding_obfuscation",
+      "name": "Representation and language",
+      "summary": "How different textual representations affect comprehension, classification, and evidence."
+    },
+    {
+      "id": "context_window_manipulation",
+      "name": "History and context",
+      "summary": "How retained messages, examples, and long inputs influence observable behavior."
+    },
+    {
+      "id": "oracle_inference_attacks",
+      "name": "Information disclosure and inference",
+      "summary": "What responses reveal, how disclosure is verified, and where guesses can resemble evidence."
+    },
+    {
+      "id": "proprioceptive_selfmodel",
+      "name": "Self-description and continuity",
+      "summary": "How statements about identity, capability, and prior commitments relate to system state."
+    },
+    {
+      "id": "output_format_exploitation",
+      "name": "Output and interpretation",
+      "summary": "How output formats interact with meaning, provenance, and downstream consumers."
+    },
+    {
+      "id": "multimodal_cross_channel",
+      "name": "Images, audio, and video",
+      "summary": "How perception and instruction boundaries differ across input channels."
+    },
+    {
+      "id": "agentic_tool_exploitation",
+      "name": "Tools and delegated authority",
+      "summary": "How tool descriptions, returned data, permissions, and observable effects relate."
+    },
+    {
+      "id": "multi_agent_systemic",
+      "name": "Coordination between agents",
+      "summary": "How information, authority, and errors move between cooperating components."
+    },
+    {
+      "id": "memory_context_poisoning",
+      "name": "Retrieval and memory",
+      "summary": "How stored information enters later decisions and how persistence is established."
+    },
+    {
+      "id": "automated_algorithmic_optimization",
+      "name": "Evaluation procedures and budgets",
+      "summary": "How search procedures, model assistance, and sampling affect the meaning of results."
+    },
+    {
+      "id": "reasoning_cot_exploitation",
+      "name": "Reasoning and measurement",
+      "summary": "What reasoning displays, resource use, and scores can and cannot establish."
+    },
+    {
+      "id": "supply_chain_training_time",
+      "name": "Training and component integrity",
+      "summary": "How data, model updates, dependencies, and distributed artifacts affect security."
+    },
+    {
+      "id": "evaluation_oversight_gaming",
+      "name": "Evaluation and oversight",
+      "summary": "How measurement conditions, incentives, and hidden confounders limit conclusions."
+    }
+  ],
+  "entries": [
+    {
+      "id": "persona_displacement.villain_roleplay",
+      "category_id": "persona_displacement",
+      "name": "Fictional roles and real responsibilities",
+      "summary": "A fictional character can change an assistant's voice without changing its authorized responsibilities. The relevant observation is a change in task behavior, not dramatic characterization.",
+      "boundary": "Character description versus the assistant's actual remit.",
+      "evidence_to_check": [
+        "The concrete action performed under the role and the policy governing that action.",
+        "Whether only tone changed or the assistant adopted a new responsibility."
+      ],
+      "alternative_explanations": [
+        "Permitted creative writing may include an objectionable character.",
+        "A theatrical refusal can preserve the same substantive boundary."
+      ],
+      "defensive_questions": [
+        "Does role adoption preserve the application's permissions?",
+        "Can evaluators distinguish fictional dialogue from an executed action?"
+      ],
+      "source_ids": [
+        "jailbroken_2023",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "An editorial behavioral distinction. Character language alone does not identify a hidden mechanism or establish a safety failure.",
+      "related_ids": [
+        "persona_displacement.jailbroken_ai_persona_dan_class",
+        "hypothetical_fictional_framing.fiction_embedding"
+      ]
+    },
+    {
+      "id": "persona_displacement.expert_persona_authority_fusion",
+      "category_id": "persona_displacement",
+      "name": "Expertise and authorization",
+      "summary": "Expertise concerns what someone knows; authorization concerns what they may do. An assistant can recognize professional competence while retaining limits on scope and access.",
+      "boundary": "Claims of competence versus permission for a particular action.",
+      "evidence_to_check": [
+        "The claimed qualification and any independently established permission.",
+        "The decision in which expertise was treated as sufficient authority."
+      ],
+      "alternative_explanations": [
+        "Better technical language can improve legitimate task understanding.",
+        "The actor may actually hold the required authorization."
+      ],
+      "defensive_questions": [
+        "Are identity and action-specific permission checked separately?",
+        "Does a credential affect access only through an explicit policy?"
+      ],
+      "source_ids": [
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "This concept separates properties often conflated in conversation. The cited hierarchy research does not validate this label as a distinct internal mechanism.",
+      "related_ids": [
+        "authority_social_engineering.professional_credential_claim",
+        "authority_social_engineering.researcher_credential_claim"
+      ]
+    },
+    {
+      "id": "persona_displacement.jailbroken_ai_persona_dan_class",
+      "category_id": "persona_displacement",
+      "name": "Alternate assistant identities",
+      "summary": "An alternate persona may claim different duties or restrictions. Such claims are conversation content; they do not create a new system role or change runtime permissions.",
+      "boundary": "An asserted identity versus the actual instruction and execution context.",
+      "evidence_to_check": [
+        "The source and runtime role of the persona description.",
+        "Substantive behavior before and after identity claims, including unchanged refusals."
+      ],
+      "alternative_explanations": [
+        "Multiple fictional voices can remain within the same permitted task.",
+        "An announcement of a new mode may be stylistic performance."
+      ],
+      "defensive_questions": [
+        "Does the system preserve authority distinctions across persona changes?",
+        "Are mode claims checked against actual configuration?"
+      ],
+      "source_ids": [
+        "hierarchy_2024",
+        "jailbroken_2023"
+      ],
+      "epistemic_status": "The historical identifier is retained for continuity. The display label describes observable role claims without treating them as a functioning bypass.",
+      "related_ids": [
+        "persona_displacement.villain_roleplay",
+        "proprioceptive_selfmodel.simulated_debug_developer_mode"
+      ]
+    },
+    {
+      "id": "persona_displacement.gradual_persona_drift",
+      "category_id": "persona_displacement",
+      "name": "Changing responsibilities over time",
+      "summary": "An assistant's working interpretation of its responsibilities can change across a retained conversation. The unit of analysis is the sequence of decisions, not a new nickname or tone.",
+      "boundary": "Earlier conversational commitments versus the continuing task boundary.",
+      "evidence_to_check": [
+        "A time-ordered record of duties accepted and actions performed.",
+        "The retained history and any authorized changes to the task."
+      ],
+      "alternative_explanations": [
+        "The user may legitimately revise the task.",
+        "Accumulated factual context can explain a different answer without role drift."
+      ],
+      "defensive_questions": [
+        "Can the system recheck scope when responsibilities change?",
+        "Do summaries preserve qualifications attached to earlier commitments?"
+      ],
+      "source_ids": [
+        "crescendo_2024",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "History dependence is plausible and studied, but a single trajectory cannot isolate gradualness, a particular turn, or an internal cause.",
+      "related_ids": [
+        "proprioceptive_selfmodel.identity_continuity_exploitation",
+        "context_window_manipulation.crescendo_multiturn_escalation"
+      ]
+    },
+    {
+      "id": "hypothetical_fictional_framing.fiction_embedding",
+      "category_id": "hypothetical_fictional_framing",
+      "name": "Fictional context and present intent",
+      "summary": "Fictional dialogue contains represented speakers and events. Analysis must preserve that attribution while separately assessing the substance of any assistance the model actually provides.",
+      "boundary": "Statements inside a story versus the current user's instructions and circumstances.",
+      "evidence_to_check": [
+        "Who speaks at each narrative layer and what the actual analytical request is.",
+        "Whether the response describes the fiction or supplies a materially different capability."
+      ],
+      "alternative_explanations": [
+        "Quoted harmful speech may be necessary for criticism or scholarship.",
+        "An intense first-person statement may belong to a fictional narrator."
+      ],
+      "defensive_questions": [
+        "Does the system preserve speaker attribution through quotations?",
+        "Can it support legitimate analysis without treating all fictional content as present intent?"
+      ],
+      "source_ids": [
+        "jailbroken_2023",
+        "redteam_methods_2024"
+      ],
+      "epistemic_status": "Fiction is neither evidence of misuse nor proof of harmlessness. This entry is an interpretation framework, not a claim that framing changes every model's behavior.",
+      "related_ids": [
+        "hypothetical_fictional_framing.recursive_nested_fiction",
+        "hypothetical_fictional_framing.historical_documentation_frame"
+      ]
+    },
+    {
+      "id": "hypothetical_fictional_framing.academic_thought_experiment",
+      "category_id": "hypothetical_fictional_framing",
+      "name": "Research purpose and analytical scope",
+      "summary": "Research framing states an intended analytical purpose. Evaluating a response still requires attention to the requested information, evidence, and level of action-enabling detail.",
+      "boundary": "A stated research purpose versus the substantive assistance delivered.",
+      "evidence_to_check": [
+        "The research question and the exact requested analytical output.",
+        "Whether conclusions remain tied to records, methods, and relevant uncertainty."
+      ],
+      "alternative_explanations": [
+        "Authorized safety research can legitimately discuss sensitive material.",
+        "A refusal may reflect missing context rather than resistance to the research itself."
+      ],
+      "defensive_questions": [
+        "Can the system distinguish retrospective analysis from a request for new operational material?",
+        "Are restrictions applied to the particular requested output rather than a topic label?"
+      ],
+      "source_ids": [
+        "redteam_methods_2024",
+        "aart_2023"
+      ],
+      "epistemic_status": "Research context matters. A research label alone neither verifies authorization nor establishes that a response crossed a boundary.",
+      "related_ids": [
+        "authority_social_engineering.researcher_credential_claim",
+        "hypothetical_fictional_framing.fiction_embedding"
+      ]
+    },
+    {
+      "id": "hypothetical_fictional_framing.historical_documentation_frame",
+      "category_id": "hypothetical_fictional_framing",
+      "name": "Historical records and current requests",
+      "summary": "An archive can contain obsolete instructions, fictional statements, and accounts of wrongdoing. Describing those records is different from executing or extending their instructions.",
+      "boundary": "Historical source material versus the analyst's present task.",
+      "evidence_to_check": [
+        "Date, provenance, original speaker, and whether a passage is quoted or paraphrased.",
+        "The difference between source description and advice added by the current assistant."
+      ],
+      "alternative_explanations": [
+        "Unfamiliar language may be ordinary historical terminology.",
+        "A quoted instruction can be evidence rather than a command to the analyst."
+      ],
+      "defensive_questions": [
+        "Does archival material remain inert during analysis?",
+        "Are missing dates and uncertain attributions visible in the report?"
+      ],
+      "source_ids": [
+        "redteam_methods_2024",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "This is a source-handling distinction. The citations support provenance and instruction priority, not a separate historical-framing efficacy estimate.",
+      "related_ids": [
+        "hypothetical_fictional_framing.fiction_embedding",
+        "hypothetical_fictional_framing.recursive_nested_fiction"
+      ]
+    },
+    {
+      "id": "hypothetical_fictional_framing.recursive_nested_fiction",
+      "category_id": "hypothetical_fictional_framing",
+      "name": "Nested speakers and quotations",
+      "summary": "A transcript may contain a persona quoting another conversation inside a fictional setting. Meaning and responsibility depend on preserving each layer's speaker and authority.",
+      "boundary": "One layer's represented speech versus instructions governing another layer.",
+      "evidence_to_check": [
+        "A clear mapping from each passage to its speaker and narrative layer.",
+        "Any point where quoted instructions were adopted as current commands."
+      ],
+      "alternative_explanations": [
+        "Complex nesting can cause ordinary comprehension errors.",
+        "A response can quote an instruction without obeying it."
+      ],
+      "defensive_questions": [
+        "Are quotation and role boundaries retained in summaries?",
+        "Can the system explain which instruction source governed its observable action?"
+      ],
+      "source_ids": [
+        "hierarchy_2024",
+        "redteam_methods_2024"
+      ],
+      "epistemic_status": "Nesting is a property of the material, not evidence of successful instruction transfer. No particular depth is asserted to cause failure.",
+      "related_ids": [
+        "hypothetical_fictional_framing.fiction_embedding",
+        "authority_social_engineering.system_developer_injection"
+      ]
+    },
+    {
+      "id": "authority_social_engineering.researcher_credential_claim",
+      "category_id": "authority_social_engineering",
+      "name": "Researcher identity and permission",
+      "summary": "A claim to be a researcher supplies context about the speaker. The relevant authorization remains tied to the system, data, and activity being discussed.",
+      "boundary": "Researcher identity versus permission over a specific resource or action.",
+      "evidence_to_check": [
+        "The requested activity and the scope attached to the research claim.",
+        "Any available authorization evidence, distinguished from an unverified assertion."
+      ],
+      "alternative_explanations": [
+        "The research may be authorized even when credentials are not visible in the transcript.",
+        "The model may adapt vocabulary without granting additional permissions."
+      ],
+      "defensive_questions": [
+        "Can authorized analytical work proceed with clear provenance?",
+        "Are resource permissions independent of claimed prestige?"
+      ],
+      "source_ids": [
+        "hierarchy_2024",
+        "redteam_methods_2024"
+      ],
+      "epistemic_status": "A missing credential record is not proof of unauthorized conduct. The entry describes a trust distinction rather than a suspicion attached to researchers.",
+      "related_ids": [
+        "hypothetical_fictional_framing.academic_thought_experiment",
+        "persona_displacement.expert_persona_authority_fusion"
+      ]
+    },
+    {
+      "id": "authority_social_engineering.professional_credential_claim",
+      "category_id": "authority_social_engineering",
+      "name": "Professional roles and access",
+      "summary": "A professional title can be relevant to a task while leaving access decisions unchanged. Role claims and verified entitlements must remain distinguishable.",
+      "boundary": "Occupational status versus the application's access policy.",
+      "evidence_to_check": [
+        "Which entitlement the action requires and how it is established.",
+        "Whether a title was merely mentioned or actually changed a permission decision."
+      ],
+      "alternative_explanations": [
+        "Role-specific support can be ordinary intended behavior.",
+        "An authenticated professional account may have legitimate additional access."
+      ],
+      "defensive_questions": [
+        "Does the application authorize actions using trusted account state?",
+        "Are exceptional permissions documented rather than inferred from conversational style?"
+      ],
+      "source_ids": [
+        "hierarchy_2024",
+        "camel_2025"
+      ],
+      "epistemic_status": "Credential-sensitive behavior is not inherently a failure. A finding requires a mismatch with the relevant authorization rule.",
+      "related_ids": [
+        "persona_displacement.expert_persona_authority_fusion",
+        "agentic_tool_exploitation.confused_deputy_privilege_chaining"
+      ]
+    },
+    {
+      "id": "authority_social_engineering.system_developer_injection",
+      "category_id": "authority_social_engineering",
+      "name": "Claimed instruction priority",
+      "summary": "Text can describe itself as a system or developer instruction while arriving through a lower-trust channel. Its wording does not determine its actual priority.",
+      "boundary": "Claimed priority in content versus priority assigned by the application.",
+      "evidence_to_check": [
+        "The real message channel and origin of the text.",
+        "Whether the assistant treated lower-trust content as governing an action."
+      ],
+      "alternative_explanations": [
+        "The user may be asking to analyze a sample instruction.",
+        "An actual trusted application update can legitimately change behavior."
+      ],
+      "defensive_questions": [
+        "Are priority decisions based on trusted message structure?",
+        "Do rendered transcripts preserve the difference between a role label and a real role?"
+      ],
+      "source_ids": [
+        "hierarchy_2024",
+        "indirect_injection_2023"
+      ],
+      "epistemic_status": "Instruction hierarchy is a researched design concept. A transcript must still establish which channel delivered the disputed material.",
+      "related_ids": [
+        "hypothetical_fictional_framing.recursive_nested_fiction",
+        "agentic_tool_exploitation.tool_description_metadata_poisoning"
+      ]
+    },
+    {
+      "id": "authority_social_engineering.urgency_emotional_pretexting",
+      "category_id": "authority_social_engineering",
+      "name": "Urgency and decision authority",
+      "summary": "Urgent or emotionally charged language can affect attention and tone. A safety-relevant change occurs only when it changes a decision that should depend on authorization or evidence.",
+      "boundary": "Perceived urgency versus the requirements for an action.",
+      "evidence_to_check": [
+        "The urgency claim and the concrete decision it accompanied.",
+        "Any verification step omitted and whether policy allowed that omission."
+      ],
+      "alternative_explanations": [
+        "A real emergency may warrant a different authorized response.",
+        "Empathetic language can coexist with unchanged access controls."
+      ],
+      "defensive_questions": [
+        "Do emergency procedures specify what can change and what still requires verification?",
+        "Can reviewers separate helpful urgency handling from unsupported exceptions?"
+      ],
+      "source_ids": [
+        "hierarchy_2024",
+        "redteam_methods_2024"
+      ],
+      "epistemic_status": "Emotional content does not establish deception. Causal influence and inappropriate permission changes require separate evidence.",
+      "related_ids": [
+        "authority_social_engineering.professional_credential_claim",
+        "agentic_tool_exploitation.excessive_agency_goal_hijack"
+      ]
+    },
+    {
+      "id": "encoding_obfuscation.classical_ciphers_encoding",
+      "category_id": "encoding_obfuscation",
+      "name": "Encoded representations",
+      "summary": "Encoded text changes the representation seen by components in a system. Comprehension, policy assessment, and downstream decoding may occur at different stages.",
+      "boundary": "Representation handling versus the meaning ultimately processed or delivered.",
+      "evidence_to_check": [
+        "Which component decoded the material and what meaning it recovered.",
+        "Whether the final decoded content differs substantively from the original request."
+      ],
+      "alternative_explanations": [
+        "The model may misunderstand an encoding.",
+        "A benign data-conversion task may legitimately preserve quoted material."
+      ],
+      "defensive_questions": [
+        "Is the evaluated content the final interpreted meaning?",
+        "Are decoding errors distinguished from a policy decision?"
+      ],
+      "source_ids": [
+        "jailbroken_2023"
+      ],
+      "epistemic_status": "Representation sensitivity is a broad research concern. No encoding is presented as effective or as evidence of a particular internal failure.",
+      "related_ids": [
+        "output_format_exploitation.structured_data_output",
+        "output_format_exploitation.translation_relay_reframing"
+      ]
+    },
+    {
+      "id": "encoding_obfuscation.lexical_substitution_leetspeak",
+      "category_id": "encoding_obfuscation",
+      "name": "Surface wording and meaning",
+      "summary": "Unusual spelling, substitutions, and jargon can change how a request is interpreted. A robust analysis distinguishes semantic change from mere surface variation.",
+      "boundary": "Surface form versus the task meaning understood by the system.",
+      "evidence_to_check": [
+        "The intended and actually interpreted meaning of each variant.",
+        "Substantive response differences with language comprehension accounted for."
+      ],
+      "alternative_explanations": [
+        "The altered wording may describe a different task.",
+        "Spelling tolerance can be useful accessibility behavior."
+      ],
+      "defensive_questions": [
+        "Do semantic checks account for ordinary spelling variation?",
+        "Are evaluation differences explained by comprehension before being labeled safety failures?"
+      ],
+      "source_ids": [
+        "best_of_n_2024",
+        "jailbroken_2023"
+      ],
+      "epistemic_status": "Related studies examine variation under specific procedures. This entry supplies no preferred substitutions or expected success rate.",
+      "related_ids": [
+        "encoding_obfuscation.classical_ciphers_encoding",
+        "encoding_obfuscation.low_resource_language_shift"
+      ]
+    },
+    {
+      "id": "encoding_obfuscation.low_resource_language_shift",
+      "category_id": "encoding_obfuscation",
+      "name": "Safety coverage across languages",
+      "summary": "A system's language understanding and safety coverage need not be uniform. Differences require assessment of meaning, fluency, task difficulty, and evaluation quality.",
+      "boundary": "Equivalent intended tasks across different language contexts.",
+      "evidence_to_check": [
+        "Semantic equivalence and fluent interpretation of the requests and responses.",
+        "Whether evaluator competence is adequate in every language being compared."
+      ],
+      "alternative_explanations": [
+        "Translation may change intent or omit constraints.",
+        "Low task competence can resemble refusal or partial compliance."
+      ],
+      "defensive_questions": [
+        "Are multilingual evaluations reviewed by competent speakers?",
+        "Does protection remain meaningful without reducing useful service for underserved languages?"
+      ],
+      "source_ids": [
+        "multilingual_2023"
+      ],
+      "epistemic_status": "The cited study is dated and model-specific. It does not establish a current language ranking or a universal relationship between resource level and safety.",
+      "related_ids": [
+        "output_format_exploitation.translation_relay_reframing",
+        "encoding_obfuscation.lexical_substitution_leetspeak"
+      ]
+    },
+    {
+      "id": "encoding_obfuscation.visual_unicode_smuggling",
+      "category_id": "encoding_obfuscation",
+      "name": "Unicode and displayed text",
+      "summary": "The bytes stored in a message, its rendered appearance, and the text consumed by a model may differ. This is a representation and provenance question before it is a behavioral claim.",
+      "boundary": "Rendered text versus normalized or parsed text at each component.",
+      "evidence_to_check": [
+        "The original code points and the actual normalization or rendering path.",
+        "Which text reached the model, evaluator, and human reviewer."
+      ],
+      "alternative_explanations": [
+        "A font or renderer may create the apparent discrepancy.",
+        "Multilingual text can legitimately contain unfamiliar characters."
+      ],
+      "defensive_questions": [
+        "Are invisible or ambiguous characters made inspectable when needed?",
+        "Do review tools preserve originals alongside normalized views?"
+      ],
+      "source_ids": [
+        "nist_aml_2025"
+      ],
+      "epistemic_status": "An editorial systems distinction informed by adversarial-ML terminology. The reviewed source does not validate a specific Unicode failure in any product.",
+      "related_ids": [
+        "multimodal_cross_channel.visual_typographic_and_perturbation",
+        "encoding_obfuscation.classical_ciphers_encoding"
+      ]
+    },
+    {
+      "id": "context_window_manipulation.payload_burial_long_context",
+      "category_id": "context_window_manipulation",
+      "name": "Relevant material in long contexts",
+      "summary": "In a long input, information can be present without being retained, retrieved, or treated as authoritative. Those are different explanations for a missed constraint.",
+      "boundary": "Available context versus information actually used in a decision.",
+      "evidence_to_check": [
+        "The full input, context limits, and any truncation or summarization.",
+        "Whether the relevant material was understood, omitted, or assigned the wrong authority."
+      ],
+      "alternative_explanations": [
+        "The application may have removed earlier material.",
+        "Ordinary retrieval or comprehension failure can explain the result."
+      ],
+      "defensive_questions": [
+        "Does the application preserve governing constraints through context management?",
+        "Can evaluations distinguish absent information from ignored instructions?"
+      ],
+      "source_ids": [
+        "many_shot_2024",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "Long-context research motivates the question. This entry does not infer attention weights or a positional failure from one response.",
+      "related_ids": [
+        "context_window_manipulation.many_shot_jailbreaking",
+        "memory_context_poisoning.cross_session_state_leakage"
+      ]
+    },
+    {
+      "id": "context_window_manipulation.many_shot_jailbreaking",
+      "category_id": "context_window_manipulation",
+      "name": "Repeated demonstrations in context",
+      "summary": "Repeated examples can influence subsequent outputs without updating model weights. Understanding this behavior requires distinguishing demonstrations, task information, and claimed permission.",
+      "boundary": "Examples of behavior versus authorization to reproduce that behavior.",
+      "evidence_to_check": [
+        "The examples actually retained and the relationship between examples and final output.",
+        "Whether a result reflects imitation, ordinary task learning, or a policy-relevant change."
+      ],
+      "alternative_explanations": [
+        "The examples may supply missing facts needed for a legitimate answer.",
+        "Input length and example content may change together."
+      ],
+      "defensive_questions": [
+        "Are examples treated according to their source and task role?",
+        "Does reporting distinguish context learning from persistent model changes?"
+      ],
+      "source_ids": [
+        "many_shot_2024"
+      ],
+      "epistemic_status": "The cited authors study a particular long-context phenomenon. Their findings do not establish a required example count or efficacy in another setting.",
+      "related_ids": [
+        "context_window_manipulation.payload_burial_long_context",
+        "proprioceptive_selfmodel.identity_continuity_exploitation"
+      ]
+    },
+    {
+      "id": "context_window_manipulation.crescendo_multiturn_escalation",
+      "category_id": "context_window_manipulation",
+      "name": "Scope changes across a dialogue",
+      "summary": "A later response can depend on earlier questions and assistant answers. Retrospective analysis should preserve the entire trajectory and identify where task scope changed.",
+      "boundary": "Conversation continuity versus a stable authorization boundary.",
+      "evidence_to_check": [
+        "The exact order of both user and assistant messages.",
+        "Changes in requested task, retained assumptions, and observed behavior across turns."
+      ],
+      "alternative_explanations": [
+        "A later message may clarify a formerly ambiguous request.",
+        "A changed outcome may reflect additional information rather than escalation."
+      ],
+      "defensive_questions": [
+        "Can the system reassess cumulative task meaning?",
+        "Are repeated snapshots recognized as dependent measurements?"
+      ],
+      "source_ids": [
+        "crescendo_2024",
+        "mt_jailbench_2026"
+      ],
+      "epistemic_status": "A named published procedure exists, but resemblance to a trajectory does not prove that procedure was used or identify its causal contribution.",
+      "related_ids": [
+        "persona_displacement.gradual_persona_drift",
+        "context_window_manipulation.payload_splitting_multi_turn_reconstruction"
+      ]
+    },
+    {
+      "id": "context_window_manipulation.payload_splitting_multi_turn_reconstruction",
+      "category_id": "context_window_manipulation",
+      "name": "Meaning distributed across turns",
+      "summary": "The significance of a conversation may depend on combining information spread across messages. Evaluating each message alone can miss the cumulative task or overstate what any one reply provides.",
+      "boundary": "Local message meaning versus the combined information in the retained history.",
+      "evidence_to_check": [
+        "Which pieces of information are available jointly and at what point.",
+        "The evaluator's unit: final response, selected turn, or whole history."
+      ],
+      "alternative_explanations": [
+        "Ordinary collaborative work naturally distributes details across turns.",
+        "The model may never combine the pieces in the way an analyst assumes."
+      ],
+      "defensive_questions": [
+        "Does the evaluation unit match the risk being measured?",
+        "Are cumulative claims supported by an explicit reconstruction of available information?"
+      ],
+      "source_ids": [
+        "mt_jailbench_2026"
+      ],
+      "epistemic_status": "This is a measurement distinction as well as a possible interaction pattern. Distributed content does not by itself establish a boundary crossing.",
+      "related_ids": [
+        "context_window_manipulation.crescendo_multiturn_escalation",
+        "evaluation_oversight_gaming.benchmark_contamination_metric_gaming"
+      ]
+    },
+    {
+      "id": "oracle_inference_attacks.differential_refusal_analysis",
+      "category_id": "oracle_inference_attacks",
+      "name": "Interpreting response differences",
+      "summary": "Changes in refusal, detail, or confidence reveal observable response behavior. They do not directly reveal the hidden rule, representation, or motive responsible for it.",
+      "boundary": "Observed decision patterns versus inferred internal causes.",
+      "evidence_to_check": [
+        "The substantive information provided, beyond refusal wording.",
+        "Task meaning, configuration, and uncertainty in the comparison."
+      ],
+      "alternative_explanations": [
+        "Random variation or ambiguity may explain the difference.",
+        "A polite answer can withhold the objective while a refusal can still disclose information."
+      ],
+      "defensive_questions": [
+        "Do evaluators score content independently of refusal phrases?",
+        "Are competing explanations retained when the policy is not visible?"
+      ],
+      "source_ids": [
+        "strongreject_2024",
+        "faithfulness_2023"
+      ],
+      "epistemic_status": "Useful for descriptive comparison. Black-box differences alone do not identify a latent refusal direction or a precise hidden decision rule.",
+      "related_ids": [
+        "oracle_inference_attacks.adjacent_domain_probing",
+        "oracle_inference_attacks.confirmation_extraction_binary_oracle"
+      ]
+    },
+    {
+      "id": "oracle_inference_attacks.adjacent_domain_probing",
+      "category_id": "oracle_inference_attacks",
+      "name": "Task boundaries between related topics",
+      "summary": "Closely related questions can belong to different authorized tasks. A system may answer one and decline another without behaving inconsistently.",
+      "boundary": "Topic similarity versus the function and consequence of the requested work.",
+      "evidence_to_check": [
+        "The action each question asks the assistant to perform.",
+        "The relevant distinction between permitted and excluded responsibilities."
+      ],
+      "alternative_explanations": [
+        "The questions may differ materially despite shared vocabulary.",
+        "Uneven subject competence can look like a policy boundary."
+      ],
+      "defensive_questions": [
+        "Is the application's intended scope expressible in terms of actions?",
+        "Can reviewers explain differences without relying only on topic keywords?"
+      ],
+      "source_ids": [
+        "hierarchy_2024",
+        "strongreject_2024"
+      ],
+      "epistemic_status": "A boundary-mapping concept, not a technique-specific efficacy claim. Related subject matter is insufficient to establish comparable requests.",
+      "related_ids": [
+        "oracle_inference_attacks.differential_refusal_analysis",
+        "persona_displacement.gradual_persona_drift"
+      ]
+    },
+    {
+      "id": "oracle_inference_attacks.confirmation_extraction_binary_oracle",
+      "category_id": "oracle_inference_attacks",
+      "name": "Information in small answers",
+      "summary": "A brief confirmation or denial can reveal protected information if it reliably depends on that information. Output length is not a measure of confidentiality.",
+      "boundary": "Permitted acknowledgment versus disclosure about protected state.",
+      "evidence_to_check": [
+        "An authorized reference establishing what the response depends on.",
+        "Information learned beyond what was already present in the request."
+      ],
+      "alternative_explanations": [
+        "The response may be guessing or following a conversational pattern.",
+        "It may repeat a fact already supplied by the user."
+      ],
+      "defensive_questions": [
+        "Do confidentiality checks cover confirmations as well as full-text disclosure?",
+        "Is informational gain assessed against what the requester already knew?"
+      ],
+      "source_ids": [
+        "extraction_2024",
+        "nist_aml_2025"
+      ],
+      "epistemic_status": "A general privacy distinction. A consistent-looking yes/no answer is not a verified oracle without evidence of dependency on protected state.",
+      "related_ids": [
+        "oracle_inference_attacks.membership_and_context_inference",
+        "oracle_inference_attacks.system_prompt_extraction"
+      ]
+    },
+    {
+      "id": "oracle_inference_attacks.membership_and_context_inference",
+      "category_id": "oracle_inference_attacks",
+      "name": "Inferring information provenance",
+      "summary": "A model's response can invite guesses about what it has seen in training or current context. Those are different sources and require different evidence.",
+      "boundary": "Behavioral familiarity versus membership in a particular information source.",
+      "evidence_to_check": [
+        "Which source is at issue: training, retrieved material, current context, or stored memory.",
+        "Ground truth and uncertainty for any membership or provenance claim."
+      ],
+      "alternative_explanations": [
+        "Common knowledge and semantic similarity can produce familiar wording.",
+        "Current-context repetition can resemble training-data recall."
+      ],
+      "defensive_questions": [
+        "Are source-specific claims evaluated with source-specific evidence?",
+        "Does the report distinguish probabilistic inference from exact recovery?"
+      ],
+      "source_ids": [
+        "nist_aml_2025",
+        "extraction_2024"
+      ],
+      "epistemic_status": "Privacy inference is an established research area. This catalog does not supply a membership estimator or treat a single familiar response as proof.",
+      "related_ids": [
+        "memory_context_poisoning.cross_session_state_leakage",
+        "oracle_inference_attacks.system_prompt_extraction"
+      ]
+    },
+    {
+      "id": "oracle_inference_attacks.system_prompt_extraction",
+      "category_id": "oracle_inference_attacks",
+      "name": "Authenticity of recovered instructions",
+      "summary": "Instruction-like output may be copied, inferred, reconstructed, or genuinely recovered. A plausible document and a favorable judge decision do not authenticate its source.",
+      "boundary": "Protected instruction text versus newly generated descriptions of behavior.",
+      "evidence_to_check": [
+        "Availability of an authorized reference and the chosen match criterion.",
+        "Provenance of the candidate text, including material supplied in the conversation."
+      ],
+      "alternative_explanations": [
+        "The assistant may generate a reasonable policy from observed behavior.",
+        "Shared generic wording can create apparent overlap."
+      ],
+      "defensive_questions": [
+        "Are exact recovery, semantic disclosure, and reconstruction reported separately?",
+        "Can uncertain authenticity remain unresolved rather than forced into success or failure?"
+      ],
+      "source_ids": [
+        "extraction_2024"
+      ],
+      "epistemic_status": "Reference-based studies support the distinction. Without a trusted reference, neither confirmed extraction nor a false-positive verdict is established.",
+      "related_ids": [
+        "oracle_inference_attacks.confirmation_extraction_binary_oracle",
+        "reasoning_cot_exploitation.reward_hacking_specification_gaming"
+      ]
+    },
+    {
+      "id": "proprioceptive_selfmodel.embodiment_substrate_induction",
+      "category_id": "proprioceptive_selfmodel",
+      "name": "Claims about embodiment and implementation",
+      "summary": "An assistant can describe bodies, environments, or implementation details that are not part of its actual deployment. Such descriptions are text, not telemetry.",
+      "boundary": "Represented embodiment or architecture versus verified runtime state.",
+      "evidence_to_check": [
+        "Which implementation facts are independently observable.",
+        "Whether the output is factual reporting, metaphor, roleplay, or unsupported assertion."
+      ],
+      "alternative_explanations": [
+        "A physical description may be part of a legitimate simulation.",
+        "The model may repeat a user-supplied premise without verifying it."
+      ],
+      "defensive_questions": [
+        "Are self-descriptions clearly separated from application telemetry?",
+        "Can downstream decisions avoid treating imagined capabilities as real access?"
+      ],
+      "source_ids": [
+        "faithfulness_2023",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "An editorial interpretation category. Conversational descriptions do not establish a persistent self-model, consciousness, or knowledge of deployment internals.",
+      "related_ids": [
+        "proprioceptive_selfmodel.capability_enhancement_discourse",
+        "persona_displacement.villain_roleplay"
+      ]
+    },
+    {
+      "id": "proprioceptive_selfmodel.capability_enhancement_discourse",
+      "category_id": "proprioceptive_selfmodel",
+      "name": "Claimed versus available capabilities",
+      "summary": "Statements that an assistant has gained tools, memory, or authority do not demonstrate that those capabilities exist. Actual availability is determined by the application.",
+      "boundary": "Conversational capability claims versus accessible functions and permissions.",
+      "evidence_to_check": [
+        "The tool registry, permission state, and observed calls where available.",
+        "The difference between offering an action and completing it."
+      ],
+      "alternative_explanations": [
+        "The assistant may be discussing a hypothetical future system.",
+        "The application may genuinely have changed configuration."
+      ],
+      "defensive_questions": [
+        "Can capability claims be checked against trusted runtime information?",
+        "Does the interface distinguish a proposal from a successful operation?"
+      ],
+      "source_ids": [
+        "agentdojo_2024",
+        "contract_audit_2026"
+      ],
+      "epistemic_status": "Self-report is weaker than execution evidence. An unsupported capability claim can be an error without any intentional deception.",
+      "related_ids": [
+        "proprioceptive_selfmodel.embodiment_substrate_induction",
+        "agentic_tool_exploitation.confused_deputy_privilege_chaining"
+      ]
+    },
+    {
+      "id": "proprioceptive_selfmodel.simulated_debug_developer_mode",
+      "category_id": "proprioceptive_selfmodel",
+      "name": "Simulated modes and real configuration",
+      "summary": "A conversation can describe a diagnostic or developer mode without changing the application. A mode's claimed rules and a real configuration transition are different events.",
+      "boundary": "Text describing a privileged mode versus an authenticated state change.",
+      "evidence_to_check": [
+        "Evidence that the application actually exposes and activated such a mode.",
+        "Any observed behavior change beyond a mode announcement."
+      ],
+      "alternative_explanations": [
+        "The request may be for a harmless mock interface.",
+        "A real diagnostic facility may exist under separate access controls."
+      ],
+      "defensive_questions": [
+        "Are privileged modes controlled outside ordinary dialogue?",
+        "Can logs distinguish simulation from an authenticated mode transition?"
+      ],
+      "source_ids": [
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "The identifier refers to a recurring framing concept. It does not imply a hidden mode is available in any particular model.",
+      "related_ids": [
+        "authority_social_engineering.system_developer_injection",
+        "persona_displacement.jailbroken_ai_persona_dan_class"
+      ]
+    },
+    {
+      "id": "proprioceptive_selfmodel.identity_continuity_exploitation",
+      "category_id": "proprioceptive_selfmodel",
+      "name": "Prior commitments and continuing authority",
+      "summary": "An earlier statement can influence a later decision through conversational continuity. The earlier statement may have conditions that no longer apply or may never have granted permission.",
+      "boundary": "Remembered commitment versus authorization for the present action.",
+      "evidence_to_check": [
+        "The original commitment, its qualifications, and the later interpretation.",
+        "Whether the conversation or memory summary preserved those qualifications."
+      ],
+      "alternative_explanations": [
+        "Following through on a legitimate commitment is ordinary helpful behavior.",
+        "The present request may fall within the original agreed scope."
+      ],
+      "defensive_questions": [
+        "Are commitments rechecked when their object or scope changes?",
+        "Do memory summaries preserve limits as well as promises?"
+      ],
+      "source_ids": [
+        "crescendo_2024",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "A behavioral hypothesis about history use. It does not establish enduring identity, cross-session memory, or a distinct internal continuity mechanism.",
+      "related_ids": [
+        "persona_displacement.gradual_persona_drift",
+        "memory_context_poisoning.persistent_memory_injection"
+      ]
+    },
+    {
+      "id": "output_format_exploitation.code_pseudocode_output",
+      "category_id": "output_format_exploitation",
+      "name": "Code as content and as action",
+      "summary": "Code-shaped output can be explanation, an inert artifact, or an input to an execution system. The security consequence depends on which role it actually has.",
+      "boundary": "Generated representation versus execution by a downstream component.",
+      "evidence_to_check": [
+        "Whether the output was stored, reviewed, executed, or merely displayed.",
+        "The concrete capability conveyed and any verified effects."
+      ],
+      "alternative_explanations": [
+        "A harmless illustration can resemble executable code.",
+        "Execution failures may come from syntax or environment issues."
+      ],
+      "defensive_questions": [
+        "Are generation and execution recorded separately?",
+        "Does any execution path enforce permissions independently of the model's prose?"
+      ],
+      "source_ids": [
+        "agentdojo_2024",
+        "camel_2025"
+      ],
+      "epistemic_status": "Format alone does not determine risk or usefulness. No generated code is included in this reference.",
+      "related_ids": [
+        "output_format_exploitation.structured_data_output",
+        "agentic_tool_exploitation.confused_deputy_privilege_chaining"
+      ]
+    },
+    {
+      "id": "output_format_exploitation.structured_data_output",
+      "category_id": "output_format_exploitation",
+      "name": "Structured output and downstream trust",
+      "summary": "JSON, tables, and other schemas make output easier to parse, but do not establish that its contents are true, authorized, or safe for a consumer to use.",
+      "boundary": "Schema validity versus semantic correctness and permitted use.",
+      "evidence_to_check": [
+        "Both syntactic validity and the meaning of each consumed field.",
+        "What downstream software did with the parsed values."
+      ],
+      "alternative_explanations": [
+        "A valid object may contain fabricated facts.",
+        "A formatting failure can be unrelated to instruction compliance."
+      ],
+      "defensive_questions": [
+        "Are action-bearing fields checked against independent constraints?",
+        "Can the consumer reject unexpected meaning even when the schema is valid?"
+      ],
+      "source_ids": [
+        "camel_2025",
+        "agentdojo_2024"
+      ],
+      "epistemic_status": "This is a general interface distinction. A structured answer is neither automatic compliance nor evidence of a particular vulnerability.",
+      "related_ids": [
+        "output_format_exploitation.code_pseudocode_output",
+        "output_format_exploitation.completion_forcing_prefill"
+      ]
+    },
+    {
+      "id": "output_format_exploitation.completion_forcing_prefill",
+      "category_id": "output_format_exploitation",
+      "name": "Prompt boundaries and continuation",
+      "summary": "Some interfaces distinguish supplied text from newly generated continuation. Analysis must identify that boundary before attributing the whole visible answer to the model.",
+      "boundary": "Caller-supplied prefix versus model-authored output.",
+      "evidence_to_check": [
+        "Which characters were provided by the caller and which were generated.",
+        "Whether the interface actually supports a continuation prefix."
+      ],
+      "alternative_explanations": [
+        "The evaluator may count supplied text as model output.",
+        "A displayed prefix may be ordinary quoted content rather than an API feature."
+      ],
+      "defensive_questions": [
+        "Do logs retain the authorship boundary in completions?",
+        "Does scoring assess the generated material rather than the combined display alone?"
+      ],
+      "source_ids": [
+        "jailbroken_2023",
+        "extraction_2024"
+      ],
+      "epistemic_status": "Interface-specific concept. Ordinary chat text does not establish access to a model's generation prefix.",
+      "related_ids": [
+        "output_format_exploitation.structured_data_output",
+        "oracle_inference_attacks.system_prompt_extraction"
+      ]
+    },
+    {
+      "id": "output_format_exploitation.translation_relay_reframing",
+      "category_id": "output_format_exploitation",
+      "name": "Translation and semantic responsibility",
+      "summary": "Translation can preserve, alter, or lose meaning across representations. The requested task, quoted source material, and new assistance added by the model must be distinguished.",
+      "boundary": "Faithful transformation of source material versus newly supplied substantive content.",
+      "evidence_to_check": [
+        "Semantic equivalence across the source and translated output.",
+        "Any extra information introduced beyond the transformation task."
+      ],
+      "alternative_explanations": [
+        "Translation errors may explain a changed apparent intent.",
+        "Legitimate translation can reproduce sensitive statements without endorsing them."
+      ],
+      "defensive_questions": [
+        "Are translation quality and safety judgments assessed independently?",
+        "Can source attribution survive changes in language and format?"
+      ],
+      "source_ids": [
+        "multilingual_2023",
+        "redteam_methods_2024"
+      ],
+      "epistemic_status": "Translation is ordinary useful functionality. The cited language study does not make translation itself a boundary violation.",
+      "related_ids": [
+        "encoding_obfuscation.low_resource_language_shift",
+        "hypothetical_fictional_framing.historical_documentation_frame"
+      ]
+    },
+    {
+      "id": "multimodal_cross_channel.visual_typographic_and_perturbation",
+      "category_id": "multimodal_cross_channel",
+      "name": "Image content and visual interpretation",
+      "summary": "Visible text in an image, scene interpretation, and numerical image perturbations are different input phenomena. Each requires evidence about what the system perceived and how that affected behavior.",
+      "boundary": "Visual data versus instructions or decisions derived from that data.",
+      "evidence_to_check": [
+        "The image actually processed and any available transcription or perception output.",
+        "Whether the disputed instruction was read, inferred, or absent from the perceived content."
+      ],
+      "alternative_explanations": [
+        "Optical recognition errors can change apparent meaning.",
+        "A scene description may quote visible text without treating it as a command."
+      ],
+      "defensive_questions": [
+        "Are perception accuracy and instruction authority assessed separately?",
+        "Does the pipeline preserve the provenance of image-derived text?"
+      ],
+      "source_ids": [
+        "visual_2023",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "The cited visual study concerns evaluated adversarial examples. It does not establish that ordinary typography and optimized perturbations share a mechanism.",
+      "related_ids": [
+        "encoding_obfuscation.visual_unicode_smuggling",
+        "multimodal_cross_channel.cross_modal_steganographic_smuggling"
+      ]
+    },
+    {
+      "id": "multimodal_cross_channel.audio_voice_channel_relay",
+      "category_id": "multimodal_cross_channel",
+      "name": "Audio, transcription, and authority",
+      "summary": "Audio systems may involve speech recognition, language reasoning, and speech output. A response difference can arise at any of those stages.",
+      "boundary": "Spoken or transcribed source material versus the authority assigned to it.",
+      "evidence_to_check": [
+        "The submitted audio, recognized content, and final generated response where available.",
+        "Whether accent, transcription, speaker attribution, or task interpretation explains the result."
+      ],
+      "alternative_explanations": [
+        "Recognition errors may remove an important qualifier.",
+        "Different speech interfaces may use different application policies."
+      ],
+      "defensive_questions": [
+        "Are comparisons grounded in equivalent perceived meaning?",
+        "Can spoken quotations remain distinct from instructions to the assistant?"
+      ],
+      "source_ids": [
+        "best_of_n_2024"
+      ],
+      "epistemic_status": "Cross-modal sampling has been studied. That does not establish that voice is generally less protected or that a particular speaker characteristic causes failure.",
+      "related_ids": [
+        "encoding_obfuscation.low_resource_language_shift",
+        "output_format_exploitation.translation_relay_reframing"
+      ]
+    },
+    {
+      "id": "multimodal_cross_channel.video_temporal_frame_injection",
+      "category_id": "multimodal_cross_channel",
+      "name": "Video sampling and temporal context",
+      "summary": "A video system may inspect only selected frames and audio segments. The visible recording and the model's actual input can therefore differ.",
+      "boundary": "Recorded temporal content versus the sampled material used in a decision.",
+      "evidence_to_check": [
+        "The actual frame and audio sampling policy, when known.",
+        "The timing and source of information reflected in the output."
+      ],
+      "alternative_explanations": [
+        "The relevant frame may never have been processed.",
+        "A temporal-order error can resemble instruction adoption."
+      ],
+      "defensive_questions": [
+        "Can evaluations identify which frames were available to the model?",
+        "Are claims about the full video limited when sampling is unknown?"
+      ],
+      "source_ids": [
+        "visual_2023",
+        "nist_aml_2025"
+      ],
+      "epistemic_status": "A systems-analysis category. The reviewed sources provide related visual and threat-model context, not a specific validation of this video pattern.",
+      "related_ids": [
+        "multimodal_cross_channel.visual_typographic_and_perturbation",
+        "context_window_manipulation.payload_burial_long_context"
+      ]
+    },
+    {
+      "id": "multimodal_cross_channel.cross_modal_steganographic_smuggling",
+      "category_id": "multimodal_cross_channel",
+      "name": "Concealed information across channels",
+      "summary": "Claims of hidden cross-modal communication require evidence that a carrier conveys recoverable information to a receiver. Unusual appearance or correlated responses are insufficient.",
+      "boundary": "Apparent carrier content versus information actually decoded by another component.",
+      "evidence_to_check": [
+        "Evidence of a defined sender, receiver, and recoverable signal.",
+        "The distinction between concealed communication and ordinary semantic inference."
+      ],
+      "alternative_explanations": [
+        "The receiver may use shared context rather than a hidden channel.",
+        "A human analyst may perceive a pattern that is not reproducible."
+      ],
+      "defensive_questions": [
+        "Can a suspected channel be validated independently of its proposed story?",
+        "Are benign correlations considered before attributing concealed communication?"
+      ],
+      "source_ids": [
+        "collusion_2024",
+        "visual_2023"
+      ],
+      "epistemic_status": "A conditional hypothesis requiring direct evidence. The cited work does not certify a covert channel in an arbitrary image, audio clip, or model exchange.",
+      "related_ids": [
+        "multi_agent_systemic.inter_agent_steganographic_collusion",
+        "multimodal_cross_channel.visual_typographic_and_perturbation"
+      ]
+    },
+    {
+      "id": "agentic_tool_exploitation.tool_description_metadata_poisoning",
+      "category_id": "agentic_tool_exploitation",
+      "name": "Tool descriptions and instruction authority",
+      "summary": "Tool metadata describes a component's purpose and interface. It can also contain claims that exceed that component's authority; returned tool content is a separate object.",
+      "boundary": "Component-provided descriptions versus application-governing instructions.",
+      "evidence_to_check": [
+        "The exact metadata version consumed and who controlled it.",
+        "Whether behavior depended on the description, implementation, or returned data."
+      ],
+      "alternative_explanations": [
+        "A changed tool implementation may cause the effect directly.",
+        "Legitimate metadata may accurately document a permitted requirement."
+      ],
+      "defensive_questions": [
+        "Are tool descriptions treated as claims from their provider?",
+        "Can the application distinguish registered metadata from ordinary tool results?"
+      ],
+      "source_ids": [
+        "indirect_injection_2023",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "An editorial specialization of the external-content trust problem. The broad references do not establish metadata control in a given system.",
+      "related_ids": [
+        "agentic_tool_exploitation.tool_rug_pull_mutation",
+        "memory_context_poisoning.retrieval_corpus_poisoning"
+      ]
+    },
+    {
+      "id": "agentic_tool_exploitation.tool_rug_pull_mutation",
+      "category_id": "agentic_tool_exploitation",
+      "name": "Tool changes after review",
+      "summary": "A tool's description or implementation may change after an earlier approval. Security review of one version does not automatically describe a later version.",
+      "boundary": "Previously reviewed component state versus the component currently in use.",
+      "evidence_to_check": [
+        "Versioned metadata and implementation identity at review and execution time.",
+        "Which changes occurred and whether the application's approval remained applicable."
+      ],
+      "alternative_explanations": [
+        "An authorized update can legitimately change behavior.",
+        "Configuration drift elsewhere may explain the difference."
+      ],
+      "defensive_questions": [
+        "Are consequential component changes visible and attributable?",
+        "Does trust attach to a specific version and permission scope?"
+      ],
+      "source_ids": [
+        "nist_aml_2025"
+      ],
+      "epistemic_status": "A lifecycle and provenance concern, not proof that an update is malicious. The current source review supplies broad terminology rather than a product-specific audit.",
+      "related_ids": [
+        "agentic_tool_exploitation.tool_description_metadata_poisoning",
+        "supply_chain_training_time.third_party_adapter_plugin_compromise"
+      ]
+    },
+    {
+      "id": "agentic_tool_exploitation.confused_deputy_privilege_chaining",
+      "category_id": "agentic_tool_exploitation",
+      "name": "Acting with another party's authority",
+      "summary": "An agent may possess permissions that the author of an input does not. A confused-deputy failure occurs when those permissions serve an instruction that lacks the required authority.",
+      "boundary": "Input-source authority versus the permissions used to act.",
+      "evidence_to_check": [
+        "Who requested the action, whose permission enabled it, and which resource was affected.",
+        "Separate records for a proposed action, emitted call, tool result, and verified effect."
+      ],
+      "alternative_explanations": [
+        "The action may have been authorized by the legitimate user.",
+        "The model may emit a call that system enforcement rejects."
+      ],
+      "defensive_questions": [
+        "Are permissions checked at the action boundary?",
+        "Can reviewers distinguish model compliance from a completed privilege violation?"
+      ],
+      "source_ids": [
+        "camel_2025",
+        "agentdojo_2024"
+      ],
+      "epistemic_status": "An established security concept. A structured call alone does not establish successful execution or an unauthorized effect.",
+      "related_ids": [
+        "agentic_tool_exploitation.tool_description_metadata_poisoning",
+        "agentic_tool_exploitation.excessive_agency_goal_hijack"
+      ]
+    },
+    {
+      "id": "agentic_tool_exploitation.excessive_agency_goal_hijack",
+      "category_id": "agentic_tool_exploitation",
+      "name": "Delegated scope and task deviation",
+      "summary": "An agent can exceed its delegated scope or pursue a task different from the user's goal. Broad permissions and task deviation are separate properties, even when both are present.",
+      "boundary": "Delegated user intent versus the goals and actions the agent adopts.",
+      "evidence_to_check": [
+        "The user's specified objective, unresolved ambiguity, and granted permissions.",
+        "Observable actions that differ from the authorized task."
+      ],
+      "alternative_explanations": [
+        "An underspecified request can admit several reasonable interpretations.",
+        "A task failure may be a capability limitation rather than goal redirection."
+      ],
+      "defensive_questions": [
+        "Is scope clear enough to evaluate deviations fairly?",
+        "Do consequential actions require permission appropriate to the user's actual request?"
+      ],
+      "source_ids": [
+        "autodojo_2026",
+        "agentdojo_2024"
+      ],
+      "epistemic_status": "Goal deviation needs a defensible reference task. An unexpected action alone does not establish malicious influence or an internal competing goal.",
+      "related_ids": [
+        "agentic_tool_exploitation.confused_deputy_privilege_chaining",
+        "multi_agent_systemic.rogue_agent_emergent_drift"
+      ]
+    },
+    {
+      "id": "agentic_tool_exploitation.out_of_band_exfiltration",
+      "category_id": "agentic_tool_exploitation",
+      "name": "Information leaving through external channels",
+      "summary": "Disclosure can occur through an external action rather than visible chat text. A confidentiality claim must identify the protected information, destination, and observed transfer.",
+      "boundary": "Data-use permission versus permission to send data to a recipient.",
+      "evidence_to_check": [
+        "The source classification, intended recipient, emitted request, and available delivery evidence.",
+        "What information the recipient could actually receive."
+      ],
+      "alternative_explanations": [
+        "The transfer may be an authorized part of the task.",
+        "A proposed outbound action may be blocked before data leaves."
+      ],
+      "defensive_questions": [
+        "Are outbound destinations and data permissions checked together?",
+        "Can the audit distinguish requested transmission from confirmed disclosure?"
+      ],
+      "source_ids": [
+        "camel_2025",
+        "indirect_injection_2023"
+      ],
+      "epistemic_status": "An outbound channel must exist and be accessible. Neither mentioning a destination nor emitting a call proves successful delivery.",
+      "related_ids": [
+        "agentic_tool_exploitation.confused_deputy_privilege_chaining",
+        "memory_context_poisoning.cross_session_state_leakage"
+      ]
+    },
+    {
+      "id": "multi_agent_systemic.infectious_instruction_propagation",
+      "category_id": "multi_agent_systemic",
+      "name": "Instruction propagation between components",
+      "summary": "One component's output may become another component's input. Propagation is established only when the relevant instruction survives the handoff and influences later behavior.",
+      "boundary": "One component's generated content versus another component's governing authority.",
+      "evidence_to_check": [
+        "The actual handoff path, message provenance, and subsequent decisions.",
+        "Whether later behavior adopted the instruction or merely repeated its text."
+      ],
+      "alternative_explanations": [
+        "Several agents may independently receive the same original instruction.",
+        "Routine quotation can look like propagation without changing behavior."
+      ],
+      "defensive_questions": [
+        "Are origin and trust level retained through handoffs?",
+        "Can downstream agents treat another model's output as untrusted evidence?"
+      ],
+      "source_ids": [
+        "propagation_2024",
+        "indirect_injection_2023"
+      ],
+      "epistemic_status": "Propagation has been demonstrated in constructed systems. Repetition across logs alone does not establish a causal chain.",
+      "related_ids": [
+        "multi_agent_systemic.cascading_failure_amplification",
+        "memory_context_poisoning.retrieval_corpus_poisoning"
+      ]
+    },
+    {
+      "id": "multi_agent_systemic.inter_agent_steganographic_collusion",
+      "category_id": "multi_agent_systemic",
+      "name": "Claims of concealed coordination",
+      "summary": "Covert coordination requires more than agreement between agents. Evidence must establish communication carrying information that an observer's ordinary view does not reveal.",
+      "boundary": "Authorized communication versus concealed information exchange or coordination.",
+      "evidence_to_check": [
+        "A supported communication channel and receiver behavior tied to its content.",
+        "The difference between shared information, correlated reasoning, and a hidden signal."
+      ],
+      "alternative_explanations": [
+        "Common training or shared prompts can produce similar outputs.",
+        "Chance patterns and ordinary conventions can resemble codes."
+      ],
+      "defensive_questions": [
+        "Are coordination claims grounded in reproducible channel evidence?",
+        "Can monitoring preserve privacy while checking unauthorized information flow?"
+      ],
+      "source_ids": [
+        "collusion_2024"
+      ],
+      "epistemic_status": "The source studies capability and conditions for concealed communication. It does not justify attributing collusion from unusual wording or apparent agreement.",
+      "related_ids": [
+        "multimodal_cross_channel.cross_modal_steganographic_smuggling",
+        "evaluation_oversight_gaming.deceptive_compliance_scheming"
+      ]
+    },
+    {
+      "id": "multi_agent_systemic.cascading_failure_amplification",
+      "category_id": "multi_agent_systemic",
+      "name": "Error spread across a workflow",
+      "summary": "A local error can affect several later decisions when components depend on one another. A cascade concerns dependency and consequences, not merely the number of agents.",
+      "boundary": "Upstream uncertainty versus downstream assumptions treated as established facts.",
+      "evidence_to_check": [
+        "The dependency path linking the initial error to later outcomes.",
+        "Which stages checked, transformed, or amplified the uncertain information."
+      ],
+      "alternative_explanations": [
+        "Several failures may share an external cause rather than a chain.",
+        "A downstream component may correct the earlier error."
+      ],
+      "defensive_questions": [
+        "Are uncertain inputs marked through the workflow?",
+        "Can a local error be contained before consequential actions depend on it?"
+      ],
+      "source_ids": [
+        "propagation_2024",
+        "agentdojo_2024"
+      ],
+      "epistemic_status": "A general systems concept. Causal propagation must be shown rather than inferred from temporal sequence or multiple failures.",
+      "related_ids": [
+        "multi_agent_systemic.infectious_instruction_propagation",
+        "agentic_tool_exploitation.excessive_agency_goal_hijack"
+      ]
+    },
+    {
+      "id": "multi_agent_systemic.rogue_agent_emergent_drift",
+      "category_id": "multi_agent_systemic",
+      "name": "Sustained deviation in an agent workflow",
+      "summary": "An agent may repeatedly act outside a delegated objective. Describing that pattern does not establish independent desires, consciousness, or a deliberately concealed plan.",
+      "boundary": "Assigned task and permissions versus a sustained pattern of observed action.",
+      "evidence_to_check": [
+        "The assigned objective, its changes, and the sequence of deviations.",
+        "Environmental feedback, memory, and other components that could sustain the pattern."
+      ],
+      "alternative_explanations": [
+        "A mistaken task interpretation can persist without a hidden goal.",
+        "Stale memory or a recurring tool error may account for repeated behavior."
+      ],
+      "defensive_questions": [
+        "Can the workflow detect and correct persistent scope divergence?",
+        "Are explanations grounded in actions rather than anthropomorphic labels?"
+      ],
+      "source_ids": [
+        "scheming_2024",
+        "autodojo_2026"
+      ],
+      "epistemic_status": "The legacy identifier is retained; the display label avoids a motive claim. The cited scheming experiments use constructed conditions that must not be assumed here.",
+      "related_ids": [
+        "agentic_tool_exploitation.excessive_agency_goal_hijack",
+        "evaluation_oversight_gaming.deceptive_compliance_scheming"
+      ]
+    },
+    {
+      "id": "memory_context_poisoning.retrieval_corpus_poisoning",
+      "category_id": "memory_context_poisoning",
+      "name": "Retrieved content and source authority",
+      "summary": "Material in a retrieval store may contain false claims or instructions. The document must first be retrieved, and its influence must then be distinguished from mere presence.",
+      "boundary": "Retrieved source content versus authority over the assistant's task.",
+      "evidence_to_check": [
+        "Control of the stored material, the retrieved record, and its actual use.",
+        "Whether the effect concerns factual contamination, instruction adoption, or both."
+      ],
+      "alternative_explanations": [
+        "The disputed document may never reach the model.",
+        "An ordinary relevant source can influence an answer legitimately."
+      ],
+      "defensive_questions": [
+        "Does retrieval preserve source provenance and trust level?",
+        "Are corpus changes distinguished from replacement of one returned field?"
+      ],
+      "source_ids": [
+        "agentpoison_2024",
+        "indirect_injection_2023"
+      ],
+      "epistemic_status": "Studies establish risks in particular retrieval systems. Presence in a corpus is not proof of retrieval, and retrieval is not proof of instruction adoption.",
+      "related_ids": [
+        "agentic_tool_exploitation.tool_description_metadata_poisoning",
+        "memory_context_poisoning.persistent_memory_injection"
+      ]
+    },
+    {
+      "id": "memory_context_poisoning.persistent_memory_injection",
+      "category_id": "memory_context_poisoning",
+      "name": "Untrusted content in persistent memory",
+      "summary": "A stored note can influence future sessions if the application later retrieves or applies it. Persistence requires evidence of both storage and subsequent use.",
+      "boundary": "Untrusted or mistaken content versus durable state used in later decisions.",
+      "evidence_to_check": [
+        "A supported write to the relevant store and a later read or effect.",
+        "Whether the saved material is treated as a preference, fact, instruction, or quotation."
+      ],
+      "alternative_explanations": [
+        "Ordinary retained conversation history may explain apparent memory.",
+        "A correct memory entry may become inappropriate after circumstances change."
+      ],
+      "defensive_questions": [
+        "Do memory records preserve source, scope, and expiry?",
+        "Can users inspect and correct consequential stored assumptions?"
+      ],
+      "source_ids": [
+        "agentpoison_2024"
+      ],
+      "epistemic_status": "Persistent memory is an application capability, not an inference from conversational familiarity. This entry does not assume a memory store exists.",
+      "related_ids": [
+        "memory_context_poisoning.cross_session_state_leakage",
+        "proprioceptive_selfmodel.identity_continuity_exploitation"
+      ]
+    },
+    {
+      "id": "memory_context_poisoning.cross_session_state_leakage",
+      "category_id": "memory_context_poisoning",
+      "name": "Isolation between sessions and users",
+      "summary": "Information can appear to cross session boundaries through memory, caches, shared resources, or ordinary prior knowledge. The source and isolation rule must be established.",
+      "boundary": "State authorized for one session or user versus state available in another.",
+      "evidence_to_check": [
+        "Session and user boundaries, intended retention, and an authorized reference for the information.",
+        "Which component could have carried the state across the boundary."
+      ],
+      "alternative_explanations": [
+        "The information may be public or supplied again in the new context.",
+        "An application may intentionally share a user-approved memory across sessions."
+      ],
+      "defensive_questions": [
+        "Are isolation and retention guarantees explicit?",
+        "Can audits distinguish shared infrastructure from model-level recall?"
+      ],
+      "source_ids": [
+        "nist_aml_2025",
+        "agentpoison_2024"
+      ],
+      "epistemic_status": "Cross-session behavior does not automatically imply cross-user leakage. A privacy finding requires evidence about provenance and the applicable isolation boundary.",
+      "related_ids": [
+        "memory_context_poisoning.persistent_memory_injection",
+        "oracle_inference_attacks.membership_and_context_inference"
+      ]
+    },
+    {
+      "id": "automated_algorithmic_optimization.white_box_gradient_suffix_search",
+      "category_id": "automated_algorithmic_optimization",
+      "name": "Optimization with internal model access",
+      "summary": "Some evaluation procedures use numerical information from model internals. Their access assumptions differ fundamentally from those of a user who can only read chat responses.",
+      "boundary": "Research access to model internals versus ordinary interface access.",
+      "evidence_to_check": [
+        "The model information available to the evaluator and how it was obtained.",
+        "The distinction between optimization on one model and evaluation on another."
+      ],
+      "alternative_explanations": [
+        "A method described as internal-access may actually rely on a surrogate model.",
+        "Apparent transfer can involve additional adaptation rather than an unchanged candidate."
+      ],
+      "defensive_questions": [
+        "Are access assumptions explicit in comparative claims?",
+        "Are discovery cost and independent evaluation reported separately?"
+      ],
+      "source_ids": [
+        "gradient_search_2023",
+        "nist_aml_2025"
+      ],
+      "epistemic_status": "The source studies a specific optimization family. No search implementation, candidate artifact, or general transfer guarantee is provided here.",
+      "related_ids": [
+        "automated_algorithmic_optimization.black_box_iterative_llm_attacker",
+        "automated_algorithmic_optimization.test_time_scaling_amplification"
+      ]
+    },
+    {
+      "id": "automated_algorithmic_optimization.black_box_iterative_llm_attacker",
+      "category_id": "automated_algorithmic_optimization",
+      "name": "Model assistance in iterative evaluation",
+      "summary": "A separate model can contribute to an evaluation process. Human-directed collaboration, automatic candidate generation, and autonomous target interaction are different divisions of work.",
+      "boundary": "Who proposes, decides, submits, and interprets feedback in the evaluation.",
+      "evidence_to_check": [
+        "Records attributing suggestions, edits, decisions, submissions, and feedback interpretation.",
+        "Which target interactions were manual or programmatic, and which records are missing."
+      ],
+      "alternative_explanations": [
+        "A human may substantially revise or reject generated suggestions.",
+        "A polished final text does not identify its author or decision process."
+      ],
+      "defensive_questions": [
+        "Does the report describe the actual division of work?",
+        "Can missing assistant-side records remain explicit rather than inferred from style?"
+      ],
+      "source_ids": [
+        "pair_2023",
+        "aart_2023",
+        "redteam_methods_2024"
+      ],
+      "epistemic_status": "Prior work establishes several forms of model-assisted evaluation. Changes between observational phases do not by themselves identify a causal assistance effect.",
+      "related_ids": [
+        "automated_algorithmic_optimization.reinforcement_learned_attacker_policy",
+        "automated_algorithmic_optimization.test_time_scaling_amplification"
+      ]
+    },
+    {
+      "id": "automated_algorithmic_optimization.reinforcement_learned_attacker_policy",
+      "category_id": "automated_algorithmic_optimization",
+      "name": "Learned evaluation generators",
+      "summary": "An evaluation generator can be trained against a feedback signal. Its apparent improvement depends on what that signal rewards and how the resulting cases are assessed independently.",
+      "boundary": "Optimization reward versus the behavior the evaluation intends to measure.",
+      "evidence_to_check": [
+        "The reward definition, training/evaluation separation, and case diversity.",
+        "Independent assessments of generated cases rather than the training score alone."
+      ],
+      "alternative_explanations": [
+        "The generator may learn quirks of the scorer.",
+        "Higher apparent difficulty may reflect narrower coverage."
+      ],
+      "defensive_questions": [
+        "Does held-out assessment measure the intended outcome?",
+        "Are diversity and generalization tracked independently from reward?"
+      ],
+      "source_ids": [
+        "model_redteam_2022",
+        "strongreject_2024"
+      ],
+      "epistemic_status": "Model-generated evaluation has research precedent. This entry does not provide a training procedure or treat reward improvement as proof of wider coverage.",
+      "related_ids": [
+        "reasoning_cot_exploitation.reward_hacking_specification_gaming",
+        "automated_algorithmic_optimization.black_box_iterative_llm_attacker"
+      ]
+    },
+    {
+      "id": "automated_algorithmic_optimization.test_time_scaling_amplification",
+      "category_id": "automated_algorithmic_optimization",
+      "name": "Sampling budgets and reported outcomes",
+      "summary": "Repeated sampling changes the opportunity to observe an unusual result. Per-query outcomes, per-session outcomes, and cumulative task coverage are different statistics.",
+      "boundary": "Measured performance under a declared budget versus an unspecified amount of search.",
+      "evidence_to_check": [
+        "The sampling unit, full denominator, stopping rule, and configuration.",
+        "Whether samples are independent, adaptively selected, or overlapping conversation snapshots."
+      ],
+      "alternative_explanations": [
+        "Selection for submission can inflate apparent success among archived records.",
+        "More samples may also explore different tasks rather than one fixed distribution."
+      ],
+      "defensive_questions": [
+        "Do comparisons use commensurate budgets and units?",
+        "Are acceptance counts separated from verified objectives and distinct task coverage?"
+      ],
+      "source_ids": [
+        "best_of_n_2024",
+        "redteam_methods_2024"
+      ],
+      "epistemic_status": "Empirical scaling applies to specified procedures. A fitted curve is not a calibrated forecast for an adaptive human workflow or an incomplete archive.",
+      "related_ids": [
+        "automated_algorithmic_optimization.black_box_iterative_llm_attacker",
+        "evaluation_oversight_gaming.benchmark_contamination_metric_gaming"
+      ]
+    },
+    {
+      "id": "reasoning_cot_exploitation.hidden_reasoning_scratchpad_injection",
+      "category_id": "reasoning_cot_exploitation",
+      "name": "Reasoning-channel access and visibility",
+      "summary": "A system may expose a reasoning display, a writable intermediate channel, or neither. These interfaces must not be conflated with access to the model's hidden computation.",
+      "boundary": "Documented intermediate-state access versus generated descriptions of reasoning.",
+      "evidence_to_check": [
+        "Which channel is visible or writable according to the actual interface.",
+        "Whether displayed reasoning was supplied, generated, summarized, or independently instrumented."
+      ],
+      "alternative_explanations": [
+        "A purported scratchpad may be ordinary text in the conversation.",
+        "A visible explanation may omit influential factors."
+      ],
+      "defensive_questions": [
+        "Are access claims grounded in interface documentation and records?",
+        "Can analyses avoid treating visible prose as complete internal telemetry?"
+      ],
+      "source_ids": [
+        "faithfulness_2023",
+        "hierarchy_2024"
+      ],
+      "epistemic_status": "A conditional category requiring documented access. The reviewed sources do not establish a writable hidden reasoning channel in an arbitrary service.",
+      "related_ids": [
+        "reasoning_cot_exploitation.visible_cot_calibration_attack",
+        "output_format_exploitation.completion_forcing_prefill"
+      ]
+    },
+    {
+      "id": "reasoning_cot_exploitation.overthinking_induced_resource_exhaustion",
+      "category_id": "reasoning_cot_exploitation",
+      "name": "Reasoning cost and availability",
+      "summary": "Some inputs can consume disproportionate reasoning resources. Availability analysis must separate generated tokens, compute cost, latency, and ordinary task difficulty.",
+      "boundary": "Permitted task processing versus excessive resource consumption.",
+      "evidence_to_check": [
+        "Resource measurements tied to the request and service configuration.",
+        "Completion quality, timeouts, queueing, and any enforced limits."
+      ],
+      "alternative_explanations": [
+        "A difficult legitimate task can require more computation.",
+        "Network or backend congestion can increase latency independently of reasoning."
+      ],
+      "defensive_questions": [
+        "Are resource limits observable and appropriate to the task?",
+        "Can cost changes be assessed without sacrificing legitimate complex work?"
+      ],
+      "source_ids": [
+        "overthink_2025"
+      ],
+      "epistemic_status": "The cited work reports a resource-consumption phenomenon in particular systems. A slow response alone is not evidence of it.",
+      "related_ids": [
+        "automated_algorithmic_optimization.test_time_scaling_amplification",
+        "reasoning_cot_exploitation.hidden_reasoning_scratchpad_injection"
+      ]
+    },
+    {
+      "id": "reasoning_cot_exploitation.reward_hacking_specification_gaming",
+      "category_id": "reasoning_cot_exploitation",
+      "name": "Scores and intended outcomes",
+      "summary": "A metric is a proxy for an intended outcome. A proxy failure is established when evidence shows that a favorable score coexists with failure of that intended outcome.",
+      "boundary": "Measured reward or approval versus the objective it is meant to represent.",
+      "evidence_to_check": [
+        "The objective, scoring rule, and independent outcome evidence.",
+        "The exact unit judged, including which messages or environment states were considered."
+      ],
+      "alternative_explanations": [
+        "An unusual solution may legitimately satisfy the objective.",
+        "Missing ground truth can make authenticity unresolved rather than disproven."
+      ],
+      "defensive_questions": [
+        "Can scoring disagreements be investigated without presuming judge error?",
+        "Are criterion values and platform decisions stored separately from analyst conclusions?"
+      ],
+      "source_ids": [
+        "strongreject_2024",
+        "judge_reliability_2026",
+        "contract_audit_2026"
+      ],
+      "epistemic_status": "Acceptance is not ground truth, but uncertainty is not proof of gaming. A causal or intentional account requires additional evidence.",
+      "related_ids": [
+        "evaluation_oversight_gaming.benchmark_contamination_metric_gaming",
+        "oracle_inference_attacks.system_prompt_extraction"
+      ]
+    },
+    {
+      "id": "reasoning_cot_exploitation.visible_cot_calibration_attack",
+      "category_id": "reasoning_cot_exploitation",
+      "name": "Explanations as evidence",
+      "summary": "A generated explanation is an observable artifact. It can help interpret a response, but its plausibility does not establish faithful access to the process that produced the decision.",
+      "boundary": "Persuasive reasoning text versus independently supported causal explanation.",
+      "evidence_to_check": [
+        "Agreement between the explanation, available inputs, and observed actions.",
+        "Whether consequential claims in the explanation have external support."
+      ],
+      "alternative_explanations": [
+        "The explanation may be a post-hoc rationalization.",
+        "An omitted factor does not imply deliberate concealment."
+      ],
+      "defensive_questions": [
+        "Do reviewers evaluate the outcome independently of rhetorical confidence?",
+        "Are self-reported reasons distinguished from experimentally supported causes?"
+      ],
+      "source_ids": [
+        "faithfulness_2023"
+      ],
+      "epistemic_status": "Research documents unfaithful explanations in evaluated settings. It does not justify dismissing every explanation or inferring hidden cognition from one passage.",
+      "related_ids": [
+        "reasoning_cot_exploitation.hidden_reasoning_scratchpad_injection",
+        "evaluation_oversight_gaming.deceptive_compliance_scheming"
+      ]
+    },
+    {
+      "id": "supply_chain_training_time.finetuning_api_safety_erosion",
+      "category_id": "supply_chain_training_time",
+      "name": "Safety after model customization",
+      "summary": "Further training can change behavior beyond the intended task improvement. Safety properties of a starting model do not automatically describe the customized model.",
+      "boundary": "Previously evaluated behavior versus behavior after a model update.",
+      "evidence_to_check": [
+        "The authorized model versions, training provenance, and evaluation conditions.",
+        "Both intended task changes and independently measured safety changes."
+      ],
+      "alternative_explanations": [
+        "Different inference settings may explain an apparent regression.",
+        "Customization may improve, preserve, or degrade different properties."
+      ],
+      "defensive_questions": [
+        "Are consequential updates followed by relevant regression evaluation?",
+        "Can changes be attributed without assuming the data or operator was malicious?"
+      ],
+      "source_ids": [
+        "finetuning_2023"
+      ],
+      "epistemic_status": "The source reports safety changes under particular customization conditions. No dataset recipe, optimization settings, or universal degradation claim is provided.",
+      "related_ids": [
+        "supply_chain_training_time.data_poisoning_backdoor_triggers",
+        "supply_chain_training_time.distribution_pipeline_weight_tampering"
+      ]
+    },
+    {
+      "id": "supply_chain_training_time.data_poisoning_backdoor_triggers",
+      "category_id": "supply_chain_training_time",
+      "name": "Training-data integrity and conditional behavior",
+      "summary": "Modified training data can affect later model behavior, including behavior dependent on specific conditions. Establishing that connection requires data provenance and appropriate causal evidence.",
+      "boundary": "Authorized training material versus untrusted changes affecting the learned system.",
+      "evidence_to_check": [
+        "The data modification, its inclusion in training, and the resulting behavior.",
+        "Whether the behavior is specifically associated with the suspected condition."
+      ],
+      "alternative_explanations": [
+        "A spurious correlation can arise without deliberate poisoning.",
+        "Inference-time context changes may explain the same observation."
+      ],
+      "defensive_questions": [
+        "Can training data changes be traced to reviewed sources?",
+        "Are anomalous conditional behaviors assessed alongside ordinary task performance?"
+      ],
+      "source_ids": [
+        "nist_aml_2025"
+      ],
+      "epistemic_status": "Data poisoning is part of established adversarial-ML terminology. This catalog supplies no contaminant, trigger, or method for creating one.",
+      "related_ids": [
+        "supply_chain_training_time.finetuning_api_safety_erosion",
+        "memory_context_poisoning.retrieval_corpus_poisoning"
+      ]
+    },
+    {
+      "id": "supply_chain_training_time.third_party_adapter_plugin_compromise",
+      "category_id": "supply_chain_training_time",
+      "name": "Trust in third-party components",
+      "summary": "Adapters, plugins, and other dependencies can alter model behavior or application actions. Their names and advertised purpose do not establish what code or parameters are actually loaded.",
+      "boundary": "Third-party component claims versus verified provenance and permission scope.",
+      "evidence_to_check": [
+        "The component identity, version, origin, and granted permissions.",
+        "Whether effects come from model parameters, executed code, metadata, or returned data."
+      ],
+      "alternative_explanations": [
+        "A legitimate update can introduce a defect without intentional compromise.",
+        "The host application may misuse an otherwise correct component."
+      ],
+      "defensive_questions": [
+        "Are dependency provenance and permissions reviewable?",
+        "Can a component's influence be isolated when behavior changes?"
+      ],
+      "source_ids": [
+        "nist_aml_2025",
+        "camel_2025"
+      ],
+      "epistemic_status": "A broad supply-chain category covering distinct artifacts. Evidence should identify the actual component type rather than assume every dependency behaves alike.",
+      "related_ids": [
+        "agentic_tool_exploitation.tool_rug_pull_mutation",
+        "supply_chain_training_time.distribution_pipeline_weight_tampering"
+      ]
+    },
+    {
+      "id": "supply_chain_training_time.distribution_pipeline_weight_tampering",
+      "category_id": "supply_chain_training_time",
+      "name": "Integrity of distributed model artifacts",
+      "summary": "A downloaded or deployed artifact may differ from the artifact that was reviewed. Integrity verification establishes identity, while behavioral evaluation addresses the properties of that artifact.",
+      "boundary": "Reviewed model or package identity versus the bytes actually deployed.",
+      "evidence_to_check": [
+        "Authenticated provenance, version records, and artifact identity checks.",
+        "The relationship between the checked artifact and the running deployment."
+      ],
+      "alternative_explanations": [
+        "An expected conversion or packaging change may explain a different hash.",
+        "A matching artifact can still contain defects present in the original release."
+      ],
+      "defensive_questions": [
+        "Is the deployed version traceable to an authorized source?",
+        "Are integrity checks distinguished from claims about model safety?"
+      ],
+      "source_ids": [
+        "nist_aml_2025"
+      ],
+      "epistemic_status": "An integrity mismatch establishes a difference, not malicious intent. Conversely, authenticity alone does not certify behavior.",
+      "related_ids": [
+        "supply_chain_training_time.third_party_adapter_plugin_compromise",
+        "supply_chain_training_time.finetuning_api_safety_erosion"
+      ]
+    },
+    {
+      "id": "evaluation_oversight_gaming.sandbagging_capability_concealment",
+      "category_id": "evaluation_oversight_gaming",
+      "name": "Underperformance and capability claims",
+      "summary": "A low evaluation score may understate what a system can do. Strategic underperformance is a stronger explanation than ordinary failure and requires evidence about conditions and incentives.",
+      "boundary": "Observed evaluation performance versus supported capability under comparable conditions.",
+      "evidence_to_check": [
+        "The task, incentives, configuration, and evidence of relevant capability elsewhere.",
+        "Whether alternative conditions change performance without changing the underlying task."
+      ],
+      "alternative_explanations": [
+        "Misunderstanding, fatigue-like service effects, or weak competence can lower scores.",
+        "Different assistance or tool access may explain stronger performance elsewhere."
+      ],
+      "defensive_questions": [
+        "Can capability conclusions survive reasonable alternative explanations?",
+        "Are evaluations designed to distinguish inability from context-sensitive performance?"
+      ],
+      "source_ids": [
+        "sandbagging_2024"
+      ],
+      "epistemic_status": "The cited study demonstrates capabilities under controlled conditions. A low score or treatment difference alone does not establish deliberate concealment.",
+      "related_ids": [
+        "evaluation_oversight_gaming.context_dependent_alignment_faking",
+        "evaluation_oversight_gaming.benchmark_contamination_metric_gaming"
+      ]
+    },
+    {
+      "id": "evaluation_oversight_gaming.context_dependent_alignment_faking",
+      "category_id": "evaluation_oversight_gaming",
+      "name": "Behavior under different oversight conditions",
+      "summary": "A system's behavior can vary with information about training or oversight. Calling that variation alignment faking adds a causal interpretation that must be supported.",
+      "boundary": "Oversight-related context versus stable expectations for the system's behavior.",
+      "evidence_to_check": [
+        "The information the system actually received about oversight or training.",
+        "Behavioral differences, available action evidence, and the assumptions needed to interpret them."
+      ],
+      "alternative_explanations": [
+        "Ordinary task changes can produce legitimate contextual variation.",
+        "The model may be following an explicit condition rather than concealing a preference."
+      ],
+      "defensive_questions": [
+        "Are oversight comparisons matched on relevant task conditions?",
+        "Can descriptive findings be reported without overstating hidden motives?"
+      ],
+      "source_ids": [
+        "alignment_faking_2024",
+        "faithfulness_2023"
+      ],
+      "epistemic_status": "The source uses particular constructed conditions. Its interpretation cannot be assigned to an unrelated conversation solely from policy-related language.",
+      "related_ids": [
+        "evaluation_oversight_gaming.sandbagging_capability_concealment",
+        "evaluation_oversight_gaming.deceptive_compliance_scheming"
+      ]
+    },
+    {
+      "id": "evaluation_oversight_gaming.benchmark_contamination_metric_gaming",
+      "category_id": "evaluation_oversight_gaming",
+      "name": "Benchmark provenance and measurement validity",
+      "summary": "Prior exposure to evaluation material and flaws in a scoring metric are different threats to validity. High scores alone establish neither.",
+      "boundary": "Performance on the measured task versus the capability or safety construct claimed.",
+      "evidence_to_check": [
+        "Evidence of data overlap separately from evidence of proxy/outcome disagreement.",
+        "Dataset selection, evaluation unit, feedback availability, and the reported denominator."
+      ],
+      "alternative_explanations": [
+        "Legitimate generalization can yield familiar wording or correct answers.",
+        "Learning from disclosed evaluation criteria is not automatically contamination or gaming."
+      ],
+      "defensive_questions": [
+        "Do reports distinguish exposure, task learning, and scoring validity?",
+        "Are selected submissions and repeated snapshots accounted for in claims?"
+      ],
+      "source_ids": [
+        "redteam_methods_2024",
+        "strongreject_2024",
+        "judge_reliability_2026"
+      ],
+      "epistemic_status": "A validity framework rather than an accusation. Evidence of exposure or metric failure is required before applying the corresponding label.",
+      "related_ids": [
+        "reasoning_cot_exploitation.reward_hacking_specification_gaming",
+        "automated_algorithmic_optimization.test_time_scaling_amplification"
+      ]
+    },
+    {
+      "id": "evaluation_oversight_gaming.deceptive_compliance_scheming",
+      "category_id": "evaluation_oversight_gaming",
+      "name": "Claims of deliberate concealment",
+      "summary": "An agent can produce reassuring statements that disagree with its actions. The discrepancy is observable; an account of deliberate concealment requires stronger evidence.",
+      "boundary": "Reported compliance versus independently observed behavior and state.",
+      "evidence_to_check": [
+        "The claimed action, actual recorded behavior, and relevant goal specification.",
+        "Whether the discrepancy persists and whether ordinary error explains it."
+      ],
+      "alternative_explanations": [
+        "A tool failure may leave the agent with an outdated belief.",
+        "A generated justification can be inaccurate without revealing a hidden plan."
+      ],
+      "defensive_questions": [
+        "Are consequential claims checked against action and state records?",
+        "Does the analysis separate contradiction, deception hypotheses, and demonstrated intent?"
+      ],
+      "source_ids": [
+        "scheming_2024",
+        "faithfulness_2023"
+      ],
+      "epistemic_status": "Constructed research shows some capabilities for deceptive behavior. This label does not establish consciousness, enduring motives, or a general disposition to scheme.",
+      "related_ids": [
+        "reasoning_cot_exploitation.visible_cot_calibration_attack",
+        "multi_agent_systemic.rogue_agent_emergent_drift"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "jailbroken_2023",
+      "title": "Jailbroken: How Does LLM Safety Training Fail?",
+      "url": "https://arxiv.org/abs/2307.02483",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on competing objectives and generalization in the evaluated systems. It does not validate every framing label used in this catalog."
+    },
+    {
+      "id": "hierarchy_2024",
+      "title": "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions",
+      "url": "https://arxiv.org/abs/2404.13208",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on instruction priority. Used for authority and data/instruction distinctions, without claiming a universal defense."
+    },
+    {
+      "id": "indirect_injection_2023",
+      "title": "Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection",
+      "url": "https://arxiv.org/abs/2302.12173",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on instructions arriving through externally supplied data. A general reference, not evidence that every integration has the same behavior."
+    },
+    {
+      "id": "gradient_search_2023",
+      "title": "Universal and Transferable Adversarial Attacks on Aligned Language Models",
+      "url": "https://arxiv.org/abs/2307.15043",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research using model-internal optimization access. Its results do not establish equivalent access through ordinary chat."
+    },
+    {
+      "id": "model_redteam_2022",
+      "title": "Red Teaming Language Models with Language Models",
+      "url": "https://arxiv.org/abs/2202.03286",
+      "year": 2022,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research comparing model-generated evaluation procedures, including reinforcement learning. The public catalog describes measurement considerations, not implementations."
+    },
+    {
+      "id": "best_of_n_2024",
+      "title": "Best-of-N Jailbreaking",
+      "url": "https://arxiv.org/abs/2412.03556",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Empirical research on repeated sampling in text, vision, and audio. Reported scaling belongs to its procedures and budgets, not arbitrary adaptive conversations."
+    },
+    {
+      "id": "multilingual_2023",
+      "title": "Low-Resource Languages Jailbreak GPT-4",
+      "url": "https://arxiv.org/abs/2310.02446",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "A dated multilingual study. It supports examining language coverage, not ranking current languages or model providers."
+    },
+    {
+      "id": "visual_2023",
+      "title": "Visual Adversarial Examples Jailbreak Aligned Large Language Models",
+      "url": "https://arxiv.org/abs/2306.13213",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on visual adversarial inputs in evaluated vision-language systems. Visible text, image perception, and optimized perturbations remain different phenomena."
+    },
+    {
+      "id": "propagation_2024",
+      "title": "Here Comes The AI Worm: Unleashing Zero-click Worms that Target GenAI-Powered Applications",
+      "url": "https://arxiv.org/abs/2403.02817",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on propagation through a constructed ecosystem of applications. It does not establish spontaneous propagation in an arbitrary agent network."
+    },
+    {
+      "id": "collusion_2024",
+      "title": "Secret Collusion among AI Agents: Multi-Agent Deception via Steganography",
+      "url": "https://arxiv.org/abs/2402.07510",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "A framework and capability study of concealed communication. Correlated outputs alone do not demonstrate a covert channel."
+    },
+    {
+      "id": "faithfulness_2023",
+      "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
+      "url": "https://arxiv.org/abs/2305.04388",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research showing that generated explanations can omit influential input features. It neither makes every explanation false nor reveals hidden computation from prose."
+    },
+    {
+      "id": "overthink_2025",
+      "title": "OverThink: Slowdown Attacks on Reasoning LLMs",
+      "url": "https://arxiv.org/abs/2502.02542",
+      "year": 2025,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on resource consumption in reasoning systems. Latency, token use, task difficulty, and service conditions need separate measurement."
+    },
+    {
+      "id": "finetuning_2023",
+      "title": "Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!",
+      "url": "https://arxiv.org/abs/2310.03693",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on behavioral change after model customization. Its findings motivate regression evaluation without establishing that every customization degrades safety."
+    },
+    {
+      "id": "sandbagging_2024",
+      "title": "AI Sandbagging: Language Models can Strategically Underperform on Evaluations",
+      "url": "https://arxiv.org/abs/2406.07358",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Controlled research on underperformance under particular instructions and training conditions. A low score alone does not establish concealment."
+    },
+    {
+      "id": "alignment_faking_2024",
+      "title": "Alignment faking in large language models",
+      "url": "https://arxiv.org/abs/2412.14093",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research using particular information about training and evaluation conditions. Ordinary contextual behavior changes do not establish the study's interpretation."
+    },
+    {
+      "id": "scheming_2024",
+      "title": "Frontier Models are Capable of In-context Scheming",
+      "url": "https://arxiv.org/abs/2412.04984",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research in deliberately constructed goal and incentive settings. It does not establish a hidden motive in an unrelated transcript."
+    },
+    {
+      "id": "crescendo_2024",
+      "title": "Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack",
+      "url": "https://arxiv.org/abs/2404.01833",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on a particular multi-turn procedure. Used to motivate trajectory analysis, not a claim that more turns inevitably erode a boundary."
+    },
+    {
+      "id": "agentpoison_2024",
+      "title": "AgentPoison: Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases",
+      "url": "https://arxiv.org/abs/2407.12784",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on modified memory and retrieval stores in evaluated agents. Store access and later retrieval must be established independently in other settings."
+    },
+    {
+      "id": "camel_2025",
+      "title": "Defeating Prompt Injections by Design",
+      "url": "https://arxiv.org/abs/2503.18813",
+      "year": 2025,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on control/data separation and capability enforcement. A design-level defense under stated assumptions, not proof about an unspecified deployment."
+    },
+    {
+      "id": "nist_aml_2025",
+      "title": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "url": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
+      "year": 2025,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Official publication page, abstract, metadata, and correction notices inspected; the full report was not audited.",
+      "scope_note": "NIST's terminology organizes lifecycle stages, access, objectives, and mitigations. Used as broad taxonomy context; the catalog is not a NIST conformance assessment."
+    },
+    {
+      "id": "many_shot_2024",
+      "title": "Many-shot jailbreaking",
+      "url": "https://www.anthropic.com/research/many-shot-jailbreaking",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Original author research summary inspected, including context-window discussion; full paper methods and code not audited.",
+      "scope_note": "The authors' original research summary on long-context demonstrations. Its proposed explanation is not a diagnosis of an individual conversation."
+    },
+    {
+      "id": "pair_2023",
+      "title": "Jailbreaking Black Box Large Language Models in Twenty Queries",
+      "url": "https://arxiv.org/abs/2310.08419",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Title, abstract, and bibliographic record inspected; methods and code were not audited.",
+      "scope_note": "Research on an automated model-driven iteration procedure. Human-directed assistance and autonomous querying are different procedures."
+    },
+    {
+      "id": "agentdojo_2024",
+      "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+      "url": "https://arxiv.org/abs/2406.13352",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected introduction and section 3.1; no replication or full code audit.",
+      "scope_note": "Research distinguishing legitimate-task utility and competing goals using outputs and environment state. Benchmark checks remain implementation-dependent."
+    },
+    {
+      "id": "extraction_2024",
+      "title": "Effective Prompt Extraction from Language Models",
+      "url": "https://openreview.net/forum?id=0o95CVdNuz",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected section 2 metrics, section 3.2, and section 4 controlled setup; no replication or full code audit.",
+      "scope_note": "Research on authentic recovery versus plausible reconstruction, with reference-based evaluation. A candidate artifact is not authenticated by its style."
+    },
+    {
+      "id": "strongreject_2024",
+      "title": "A StrongREJECT for Empty Jailbreaks",
+      "url": "https://arxiv.org/abs/2402.10260",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected sections 2.2 and 3.1; no replication or full code audit.",
+      "scope_note": "Research separating non-refusal from substantive fulfillment and comparing evaluators with human judgments. Its content metric does not verify external actions."
+    },
+    {
+      "id": "redteam_methods_2024",
+      "title": "Red-Teaming for Generative AI: Silver Bullet or Security Theater?",
+      "url": "https://ojs.aaai.org/index.php/AIES/article/view/31647/33814",
+      "year": 2024,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected methodology and the Table 1 question bank; no replication or code audit.",
+      "scope_note": "A reporting framework for purposes, actors, artifacts, resources, and auxiliary AI. It is methodological context rather than proof of a particular effect."
+    },
+    {
+      "id": "aart_2023",
+      "title": "AART: AI-Assisted Red-Teaming with Diverse Data Generation for New LLM-powered Applications",
+      "url": "https://aclanthology.org/2023.emnlp-industry.37/",
+      "year": 2023,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected sections 3.1-3.2 and 4; no replication or full code audit.",
+      "scope_note": "Research on human-scoped, model-assisted evaluation data generation. Coverage proxies are not a causal estimate of collaborator benefit."
+    },
+    {
+      "id": "mt_jailbench_2026",
+      "title": "MT-JailBench: A Modular Benchmark for Understanding Multi-Turn Jailbreak Attacks",
+      "url": "https://arxiv.org/abs/2605.11002",
+      "year": 2026,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected sections 2 and 3.1 plus the introductory results synopsis; no replication or full code audit.",
+      "scope_note": "Preprint distinguishing response-level and history-level judging with explicit budgets. Its scoring units should not be assumed for other platforms."
+    },
+    {
+      "id": "judge_reliability_2026",
+      "title": "How Reliable Is Your Jailbreak Judge? Calibration and Adversarial Robustness of Automated ASR Scoring",
+      "url": "https://arxiv.org/abs/2606.25487",
+      "year": 2026,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected sections 3 and 6, including stated limitations; no replication or full code audit.",
+      "scope_note": "Preprint studying evaluator agreement and robustness on a defined dataset. It does not establish that an unidentified judge is unreliable."
+    },
+    {
+      "id": "contract_audit_2026",
+      "title": "Do Agent Benchmarks Do What They Say? An Executable-Contract Audit of Tool-Using Agent Environments",
+      "url": "https://arxiv.org/abs/2609.37315",
+      "year": 2026,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected score-provenance discussion and sections V-B and V-C; no independent replication or full code audit.",
+      "scope_note": "Preprint comparing advertised behavior, executable implementations, and scoring provenance. Export-only analysis cannot reproduce implementation-level defect proofs."
+    },
+    {
+      "id": "autodojo_2026",
+      "title": "AutoDojo: Adaptive Attacks Expose Superficial Defenses and User-Underspecification Limits in LLM Agents",
+      "url": "https://arxiv.org/abs/2606.15057",
+      "year": 2026,
+      "reviewed_on": "2026-10-07",
+      "review_depth": "Team review inspected introduction and sections V-C1 and V-C2; no replication or full code audit.",
+      "scope_note": "Preprint distinguishing specified and underspecified tasks. Task ambiguity is a potential confound, not automatic permission for arbitrary agent behavior."
+    }
+  ],
+  "evaluation_dimensions": [
+    {
+      "id": "sampling_frame_units",
+      "name": "Sampling frame and units",
+      "question": "What is complete, what was selected, and what exactly is counted?",
+      "why_it_matters": "A complete submission archive can omit most activity. Messages, chats, submissions, and distinct task/model combinations support different descriptive claims."
+    },
+    {
+      "id": "actor_control_and_visibility",
+      "name": "Actor, control, and visibility",
+      "question": "Who controlled each input, and which visible material was fixed by the environment?",
+      "why_it_matters": "A runtime user role does not establish human authorship. Seeing a continuation does not establish control over that conversation or permission to continue it."
+    },
+    {
+      "id": "submission_ancestry",
+      "name": "Trajectory and snapshot ancestry",
+      "question": "Does this record represent a new interaction, a branch, or another view of the same history?",
+      "why_it_matters": "Overlapping snapshots are dependent observations. Retaining ancestry prevents duplicated evidence and unsupported attribution to an added turn."
+    },
+    {
+      "id": "outcome_evidence",
+      "name": "Outcome evidence",
+      "question": "Is the record a statement, an emitted call, a returned result, or an independently checked effect?",
+      "why_it_matters": "Those observations answer different questions. Platform acceptance is a separate judgment; it does not replace action or state evidence."
+    },
+    {
+      "id": "artifact_provenance",
+      "name": "Artifact provenance",
+      "question": "Was the output supplied, generated, reconstructed, or matched to an authorized reference?",
+      "why_it_matters": "Plausible content can resemble a recovered artifact. Reference availability and the chosen match criterion determine which authenticity claims are supported."
+    },
+    {
+      "id": "judge_feedback_context",
+      "name": "Judging and feedback",
+      "question": "What was judged, and what feedback was actually available to the researcher at that time?",
+      "why_it_matters": "Criterion values, scoring scope, and confirmed feedback access need separate records. Temporal order alone does not establish feedback use or explain a changing score."
+    },
+    {
+      "id": "assistance_provenance",
+      "name": "Human-AI division of work",
+      "question": "Which suggestions, edits, decisions, submissions, and interpretations have attributable records?",
+      "why_it_matters": "Final prose cannot recover missing collaboration history. Human-directed assistance and autonomous querying are different procedures, and phase differences alone are not causal effects."
+    },
+    {
+      "id": "configuration_and_transfer",
+      "name": "Configuration and transfer",
+      "question": "Which task, model label, context, interface, and candidate remained the same?",
+      "why_it_matters": "Reuse, adaptation, and unchanged transfer are different observations. Anonymized labels do not reveal providers or establish identity across separate events."
+    }
+  ],
+  "learning_paths": [
+    {
+      "id": "boundaries_and_attribution",
+      "title": "Understand a trust boundary",
+      "summary": "A reading path through roles, quotations, source authority, and the evidence needed to distinguish them.",
+      "entry_ids": [
+        "hypothetical_fictional_framing.fiction_embedding",
+        "hypothetical_fictional_framing.recursive_nested_fiction",
+        "authority_social_engineering.system_developer_injection",
+        "persona_displacement.expert_persona_authority_fusion",
+        "memory_context_poisoning.retrieval_corpus_poisoning"
+      ],
+      "questions": [
+        "Who is speaking, and through which actual channel?",
+        "What may this source describe, and what may it authorize?",
+        "Which observations distinguish quotation from instruction adoption?"
+      ]
+    },
+    {
+      "id": "agent_action_evidence",
+      "title": "Read an agent's action record",
+      "summary": "Concepts for separating permissions, proposed actions, tool behavior, and verified effects.",
+      "entry_ids": [
+        "proprioceptive_selfmodel.capability_enhancement_discourse",
+        "agentic_tool_exploitation.tool_description_metadata_poisoning",
+        "agentic_tool_exploitation.confused_deputy_privilege_chaining",
+        "agentic_tool_exploitation.excessive_agency_goal_hijack",
+        "agentic_tool_exploitation.out_of_band_exfiltration"
+      ],
+      "questions": [
+        "What did the user authorize?",
+        "What does the trace show beyond an assertion or call record?",
+        "Which part of the system enforced the relevant boundary?"
+      ]
+    },
+    {
+      "id": "time_and_memory",
+      "title": "Understand change across time",
+      "summary": "A thematic guide to retained context, evolving responsibilities, stored information, and isolation.",
+      "entry_ids": [
+        "persona_displacement.gradual_persona_drift",
+        "proprioceptive_selfmodel.identity_continuity_exploitation",
+        "context_window_manipulation.crescendo_multiturn_escalation",
+        "memory_context_poisoning.persistent_memory_injection",
+        "memory_context_poisoning.cross_session_state_leakage"
+      ],
+      "questions": [
+        "What information was actually retained?",
+        "Did a responsibility change, or did the task become clearer?",
+        "What evidence distinguishes history from persistent memory?"
+      ]
+    },
+    {
+      "id": "measurement_and_claims",
+      "title": "Assess a research claim",
+      "summary": "Concepts for checking authenticity, scoring units, selection effects, and the division of work in assisted research.",
+      "entry_ids": [
+        "oracle_inference_attacks.system_prompt_extraction",
+        "reasoning_cot_exploitation.reward_hacking_specification_gaming",
+        "evaluation_oversight_gaming.benchmark_contamination_metric_gaming",
+        "automated_algorithmic_optimization.test_time_scaling_amplification",
+        "automated_algorithmic_optimization.black_box_iterative_llm_attacker"
+      ],
+      "questions": [
+        "What outcome is independently supported?",
+        "What population and counting unit does the result describe?",
+        "What alternative explanation would materially change the conclusion?"
+      ]
+    },
+    {
+      "id": "language_and_perception",
+      "title": "Follow meaning across channels",
+      "summary": "A reading path connecting language, representation, perception, and source attribution.",
+      "entry_ids": [
+        "encoding_obfuscation.low_resource_language_shift",
+        "output_format_exploitation.translation_relay_reframing",
+        "encoding_obfuscation.visual_unicode_smuggling",
+        "multimodal_cross_channel.visual_typographic_and_perturbation",
+        "multimodal_cross_channel.audio_voice_channel_relay",
+        "multimodal_cross_channel.video_temporal_frame_injection"
+      ],
+      "questions": [
+        "Did each component perceive equivalent meaning?",
+        "Where could translation or recognition account for the difference?",
+        "Which source and speaker labels survived the transformation?"
+      ]
+    },
+    {
+      "id": "system_integrity",
+      "title": "Review systems and oversight",
+      "summary": "Concepts for understanding component provenance, update effects, coordinated workflows, and the limits of motive claims.",
+      "entry_ids": [
+        "supply_chain_training_time.finetuning_api_safety_erosion",
+        "supply_chain_training_time.third_party_adapter_plugin_compromise",
+        "supply_chain_training_time.distribution_pipeline_weight_tampering",
+        "multi_agent_systemic.cascading_failure_amplification",
+        "reasoning_cot_exploitation.visible_cot_calibration_attack",
+        "evaluation_oversight_gaming.deceptive_compliance_scheming"
+      ],
+      "questions": [
+        "Which artifact and configuration were actually evaluated?",
+        "What evidence links one component's behavior to a later effect?",
+        "Does the report distinguish an observed discrepancy from an inferred intention?"
+      ]
+    }
+  ]
+}

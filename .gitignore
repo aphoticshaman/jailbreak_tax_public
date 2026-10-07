@@ -1,0 +1,32 @@
+# Private work belongs outside this checkout. These are additional protections.
+/workspace/
+/workspaces/
+/private/
+/sessions/
+/research/
+/logs/
+/exports/
+/GRAY SWAN ARENA LOGS/
+**/workspace.json
+**/sources.private.json
+**/snapshots.private.json
+**/RESEARCH.html
+submission-*.json
+submission-*.txt
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.lock
+*.tmp
+__pycache__/
+*.py[cod]
+/target/
+/.venv/
+/.vscode/
+/.idea/
+.DS_Store
+Thumbs.db

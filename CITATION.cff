@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite the repository version you used; cite linked research papers separately for their findings."
+title: "Jailbreak Taxonomy: an offline reference for human-AI research"
+type: software
+authors:
+  - name: "Boundary Operator"
+version: 0.1.0
+date-released: 2026-10-07
+license: MIT
+repository-code: "https://github.com/aphoticshaman/jailbreak_tax_public"
+url: "https://aphoticshaman.github.io/jailbreak_tax_public/"
+abstract: "A sourced educational taxonomy and local evidence workbench for people working with AI assistants. Public examples are fictional; working research stays in separate private directories."
+keywords:
+  - AI safety
+  - evidence provenance
+  - research methods
+  - human-AI collaboration
