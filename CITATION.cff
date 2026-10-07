@@ -4,7 +4,7 @@ title: "Jailbreak Taxonomy: an offline reference for human-AI research"
 type: software
 authors:
   - name: "Boundary Operator"
-version: 0.1.0
+version: 0.1.1
 date-released: 2026-10-07
 license: MIT
 repository-code: "https://github.com/aphoticshaman/jailbreak_tax_public"

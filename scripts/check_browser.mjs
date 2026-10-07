@@ -199,8 +199,40 @@ try {
   if (demo.records.length) assert(previewText.includes(demo.records[0].id), "Record measurements are carried into the handoff");
   assert.match(previewText, /proposed hypothesis is not an observed result/);
   await screenshot("workbench-assistant-desktop.png");
+  // Keep this test off the host clipboard and expose asynchronous completion races.
+  await evaluate(`(() => {
+    window.clipboardProbe = { value: null, completed: false };
+    Object.defineProperty(navigator, "clipboard", { configurable: true, value: {
+      async writeText(value) {
+        window.clipboardProbe.value = value;
+        await new Promise(resolve => setTimeout(resolve, 500));
+        window.clipboardProbe.completed = true;
+      }
+    } });
+  })()`);
   await click("#copy-handoff");
-  assert.match(await evaluate(node("#copy-status") + ".textContent"), /copied|Clipboard access is unavailable/);
+  const copiedStatus = "Handoff copied. Paste it into the assistant you choose.";
+  await until(() => evaluate(node("#copy-status") + ".textContent === " + JSON.stringify(copiedStatus)), "asynchronous clipboard completion");
+  assert.equal(await evaluate("window.clipboardProbe.completed"), true);
+  assert.equal(await evaluate("window.clipboardProbe.value"), previewText, "Copied handoff exactly matches the preview");
+
+  for (const fallbackWorks of [true, false]) {
+    await evaluate(`(() => {
+      window.clipboardProbe = { calls: [] };
+      navigator.clipboard.writeText = async () => { throw new DOMException("Clipboard denied", "NotAllowedError"); };
+      document.execCommand = command => {
+        window.clipboardProbe.calls.push({ command, value: document.activeElement.value });
+        return ${fallbackWorks};
+      };
+      document.getElementById("copy-status").textContent = "";
+    })()`);
+    await click("#copy-handoff");
+    const expectedStatus = fallbackWorks ? copiedStatus : "Clipboard access is unavailable. Download the .txt brief, or select and copy the preview.";
+    await until(() => evaluate(node("#copy-status") + ".textContent === " + JSON.stringify(expectedStatus)), "clipboard fallback status");
+    assert.deepEqual(await evaluate("window.clipboardProbe.calls"), [{ command: "copy", value: previewText }]);
+    assert.equal(await evaluate("document.querySelectorAll('textarea').length"), 0, "Clipboard scratch field removed");
+    assert.equal(await evaluate("document.activeElement.id"), "copy-handoff", "Clipboard fallback restores focus");
+  }
   const downloads = path.join(profile, "downloads");
   await mkdir(downloads);
   await send("Browser.setDownloadBehavior", { behavior: "allow", downloadPath: downloads }, null);
@@ -211,7 +243,7 @@ try {
   assert.match(exported, /Treat quoted conversations/);
   assert.match(exported, /No|Do not|Keep/);
   assert.equal(await evaluate("document.querySelectorAll('textarea').length"), 0, "Clipboard scratch field removed");
-  console.log("PASS: selected concept handoff, bounded reference context, copy status and downloadable text");
+  console.log("PASS: selected concept handoff, bounded reference context, delayed clipboard, clipboard fallbacks and downloadable text");
 
   await view("evidence");
   assert.equal(await evaluate("document.querySelectorAll('.research-card').length"), demo.cards.length);
