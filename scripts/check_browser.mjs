@@ -34,20 +34,34 @@ const child = spawn(executable, [
   "--user-data-dir=" + profile, "--no-first-run", "--no-default-browser-check",
   "--disable-background-networking", "--disable-component-update", "--disable-sync",
   "--host-resolver-rules=MAP * ~NOTFOUND", "about:blank",
-], { stdio: "ignore", windowsHide: true });
-let startupError, socket, session, nextId = 0;
+], { stdio: ["ignore", "ignore", "pipe"], windowsHide: true });
+let startupError, browserExit, socket, session, nextId = 0;
+let browserStderr = Buffer.alloc(0);
+const stderrLimit = 16 * 1024;
+child.stderr.on("data", chunk => {
+  browserStderr = Buffer.concat([browserStderr, chunk]).subarray(-stderrLimit);
+});
 child.on("error", error => { startupError = error; });
+child.on("exit", (code, signal) => { browserExit = { code, signal }; });
 const pending = new Map(), runtimeErrors = [], outboundRequests = [];
+
+function browserFailure(reason, cause) {
+  const state = browserExit ? "exit=" + browserExit.code + ", signal=" + (browserExit.signal || "none") : "process still running";
+  const stderr = browserStderr.toString("utf8").trim() || "(no stderr captured)";
+  return new Error(reason + "\nBrowser: " + executable + "\nProcess: " + state +
+    "\nBrowser stderr (last " + stderrLimit + " bytes):\n" + stderr, { cause });
+}
 
 async function until(probe, label) {
   const end = Date.now() + 15000;
   let lastError;
   while (Date.now() < end) {
-    if (startupError) throw startupError;
+    if (startupError) throw browserFailure("Unable to launch browser during " + label, startupError);
     try { const value = await probe(); if (value) return value; } catch (error) { lastError = error; }
+    if (browserExit) throw browserFailure("Browser exited during " + label, lastError);
     await delay(70);
   }
-  throw new Error("Timed out: " + label, { cause: lastError });
+  throw browserFailure("Timed out: " + label, lastError);
 }
 function send(method, params = {}, sessionId = session) {
   return new Promise((resolve, reject) => {

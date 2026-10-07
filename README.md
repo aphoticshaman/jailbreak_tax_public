@@ -2,7 +2,7 @@
 
 Understand AI failure patterns, check the evidence, and develop research with your AI partner.
 
-**[Open the research workbench](https://aphoticshaman.github.io/jailbreak_tax_public/)** · [Download the offline page](https://github.com/aphoticshaman/jailbreak_tax_public/raw/refs/heads/main/START.html) · [Assistant guide](docs/ASSISTANT_GUIDE.md)
+**[Open the research workbench](https://aphoticshaman.github.io/jailbreak_tax_public/)** · [Download the offline page](https://github.com/aphoticshaman/jailbreak_tax_public/releases/latest/download/START.html) · [Assistant guide](docs/ASSISTANT_GUIDE.md)
 
 This is a sourced, open reference for people studying AI safety. New to the subject? Start with the reading paths and plain-language explanations. Working on a paper? Examine the evidence questions, competing explanations, and source limits. Working with an assistant? Give it this repository and describe what you want to understand; it maintains the records for you.
 
