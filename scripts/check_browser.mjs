@@ -52,8 +52,8 @@ function browserFailure(reason, cause) {
     "\nBrowser stderr (last " + stderrLimit + " bytes):\n" + stderr, { cause });
 }
 
-async function until(probe, label) {
-  const end = Date.now() + 15000;
+async function until(probe, label, timeoutMs = 15000) {
+  const end = Date.now() + timeoutMs;
   let lastError;
   while (Date.now() < end) {
     if (startupError) throw browserFailure("Unable to launch browser during " + label, startupError);
@@ -110,7 +110,7 @@ try {
   const ports = await until(async () => {
     const lines = (await readFile(path.join(profile, "DevToolsActivePort"), "utf8")).trim().split(/\r?\n/);
     return lines.length >= 2 ? lines : null;
-  }, "headless browser startup");
+  }, "headless browser startup", 45000);
   socket = new WebSocket("ws://127.0.0.1:" + ports[0] + ports[1]);
   socket.addEventListener("message", event => {
     const message = JSON.parse(event.data);
